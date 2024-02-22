@@ -1,0 +1,2733 @@
+6+ years of experience 
+Expert in Linux and scripting (shell) 
+Mentor, coach and guy-to-go-to for container (Docker) and Kubernetes-related help/questions 
+Working experience with tools for working with: 
+Version control?(Git) 
+Continuous Integration servers?(preferred Jenkins, Azure DevOps) 
+Configuration management 
+Deployment automation?(preferred HelmCharts, nice to have Ansible) 
+Containers?(orchestrated via docker-compose, Kubernetes) 
+Infrastructure Orchestration?(Terraform) 
+Monitoring and analytics?(preferred Prometheus & Grafana, APM) 
+Testing and Cloud Quality tools 
+Network protocols?(TCP/IP, UDP, HTTP(S), SFTP, streaming (Kafka)) 
+Practice and working experience with DevSecOps 
+Working experience with Azure and AKS 
+Automation – continuous deployment 
+Strong communication skills, listener. 
+Base?knowledge of web applications, application security?(would be great if you have Oauth2/IODC knowledge)?and open-source technologies 
+Experience?with?relational databases, SQL migrations 
+Working experience as a mentor & evangelist in DevOps 
+Work in an agile (SCRUM based) environment 
+ 
+
+Additional Experience that would be nice to have 
+
+ 
+
+Working experience in the financial industry 
+Working experience with ArgoCD and Argo Rollouts 
+Working experience with stream processing message brokers like?Kafka 
+Working experience with Golang or Python 
+
+
+
+
+
+
+
+
+ec2.tf
+
+resource "aws_instance" "web" {
+ ami           = "ami-0a793667c3d7db52e"
+ instance_type = "t2.micro"
+ key_name = "devjenkins"
+
+ tags = {
+   Name = "webserver1"
+   env = "Prod"
+ }
+}
+
+
+VPC 
+
+resource "aws_vpc" "global-vpc" {
+ cidr_block       = "200.0.0.0/16"
+ instance_tenancy = "default"
+
+ tags = {
+   Name = "7am-dev-vpc"
+ }
+}
+
+
+terraform init
+ installs required version and prepare the setup 
+
+terraform validate
+just code validation for syntax errors 
+
+terraform plan 
+pre-checking the execution 
+
+terraform apply
+Applying the configurations 
+
+
+
+
+Terraform variables:
+
+4 types 
+
+terraform plan -var sgname=testSG
+terraform.tfvars - highest priority (prodSG)
+
+Environment variables: 
+export TF_VAR_sgname=preprod
+
+variables.tf (variables will work) 
+
+
+
+
+
+
+How to destroy particular resources :
+
+terraform state list
+terraform destroy -target aws_instance.webservers[0]
+
+auto approving the commit: 
+
+terraform apply -auto-approve
+Terraform Data blocks:
+To avoid hard coded entries by calling the names: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+check syntax: 
+   helm lint demo
+
+dry run:
+   helm install app1 demo --debug --dry-run
+
+Install:
+  helm install app1 demo
+
+
+ kubectl get all
+
+revision:
+  helm list -a
+  kubectl.exe get all
+
+Upgrade:
+  helm upgrade app1 demo
+  kubectl.exe get all
+
+Roll back:
+  helm list -a
+   helm rollback app1 1
+   kubectl.exe get all
+   helm list -a
+
+
+Delete:
+   helm delete app1
+
+
+
+
+
+
+
+
+
+
+- File system hierarchy
+    - / - This is top level directory
+    - /root - It is home directory for root user
+    - /home - It is home directory for other users
+    - /boot - It contains bootable files for Linux
+    - /etc - It contains all configuration files
+    - /usr - by default softwares are installed in this directory
+    - /bin - It contains commands used by all users
+    - /sbin - It contains commands used by only root user (root)
+    - /opt -  It contains 3rd party s/w files
+- Linux basic Commands
+    - cat (create & append file)
+    - touch (create blank file)
+    - nano (create & edit file)
+    - vi/vim (create & edit file)
+    - ls (list) (-a, -la)
+    - cd (change directory)
+    - pwd (print working directory)
+    - mkdir (create directory, multiple)
+    - cp (copy)
+    - mv (move)
+    - mv (rename)
+    - rm (remove file)
+    - tree (see in tree structure)
+    - rm -rf(remove directory & recursive)
+    - grep (pick & print)
+    - less (see output)
+    - head (see top 10 lines)
+    - tail (see last 10 lines)
+    - sort (display in Alphabetic/Numeric order)
+    - User
+    - Group
+    - Soft Link (shortcut)
+    - Hard Link (backup)
+    - /tar (to pack)
+    - gz (to compress)
+    - yum (to install)
+    - wget (to download)
+    - File/Directory Permissions:
+    - chmod (permissions)
+    - chown (owner)
+    - chgrp (group)
+    - hostname (to see hostname)
+    - ifconfig (to get ip address)
+    - cat /etc/*rele* (to get os version)
+    - apt get install httpd (to install package)
+    - yum update httpd (to upgrade package)
+    - yum remove httpd (to uninstall package)
+    - yum list installed (to see installed packages)
+    - service httpd status (to see status)
+    - service httpd start (to start service)
+    - service httpd reload (to restart service)
+    - service httpd restart (to restart service)
+    - chkconfig httpd on (to start service permanently)
+    - chkconfig httpd off (to stop service permanently)
+    - Redirection (redirecting output)
+    - which (to see package installed or not)
+    - sudo (to get root privileges)
+    - whoami (to see user)
+    - find -type f (to see all files in current directory)
+    - find -type d (to see all directories in current directory)
+    - find / -type f (to see all files under top level root directory)
+    - find / -type d (to see all directories under top level root directory)
+    - find / -type f -name <file_name> (to search specific file under top level root directory)
+    - find / -type d -name <dir_name> (to search specific dir under top level root directory)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$0 = The name of the bash script.
+
+$1, $2...$n = The bash script arguments.
+
+$$ = The process id of the current shell.
+
+$# = The total number of arguments passed to the script.
+
+$@ = The value of all the arguments passed to the script.
+
+$? = The exit status of the last executed command.
+
+$! = The process id of the last executed command.
+
+$USER: The username of the user executing the script.
+
+$HOSTNAME: The hostname of the computer running the script.
+
+$SECONDS: The number of seconds the script has been running for.
+
+$RANDOM: Returns a random number.
+
+$LINENO: Returns the current line number of the script.
+
+
+
+$* (Dollar Asterisk):
+
+When referenced, $* represents all the arguments passed to the script or function as a single string.
+The arguments are concatenated together with spaces as separators.
+For example, if the script is called with script.sh arg1 arg2 arg3, then $* would be expanded to the string "arg1 arg2 arg3".
+
+
+$@ (Dollar At):
+
+When referenced, $@ represents all the arguments passed to the script or function as individual, separate strings.
+Each argument is treated as a separate entity and retains its original form.
+For example, if the script is called with script.sh arg1 arg2 arg3, then $@ would be expanded to the list of strings "arg1", "arg2", and "arg3".
+
+
+
+
+
+
+
+explain tee command in linux with example
+
+The tee command in Linux is used to read from standard input and write to both standard output and files simultaneously. It allows you to redirect the output of a
+ command or a pipeline to one or more files while still displaying it on the terminal. This can be useful for logging or saving the output of a command to a file for
+ further analysis, without losing the visibility of the output on the terminal.
+
+The basic syntax of the tee command is:
+
+bash
+Copy code
+command | tee [OPTION]... [FILE]...
+Here, command represents the command or pipeline whose output you want to capture, and FILE represents the file(s) where you want to save the output.
+
+Let's look at a simple example to understand the tee command better. Consider a file named example.txt with the following content:
+
+kotlin
+Copy code
+Hello, this is line 1.
+And this is line 2.
+Now, let's use the cat command to display the content of the file and use tee to save the output to a new file named output.txt:
+
+bash
+Copy code
+cat example.txt | tee output.txt
+After running this command, the content of example.txt will be displayed on the terminal, and a new file named output.txt will be created with the same content as 
+example.txt. The output on the terminal will look like this:
+
+kotlin
+Copy code
+Hello, this is line 1.
+And this is line 2.
+The output.txt file will also contain the same content:
+
+kotlin
+Copy code
+Hello, this is line 1.
+And this is line 2.
+By default, tee will overwrite the contents of the output file if it already exists. If you want to append the output to an existing file instead, you can use 
+the -a option:
+
+bash
+Copy code
+cat example.txt | tee -a output.txt
+Now, if you run the same command again, the content of output.txt will be:
+
+kotlin
+Copy code
+Hello, this is line 1.
+And this is line 2.
+Hello, this is line 1.
+And this is line 2.
+As you can see, the content has been appended to the existing output.txt file.
+
+In summary, the tee command is a handy tool in Linux for capturing the output of a command or pipeline and saving it to one or more files while still displaying it 
+on the terminal.
+
+
+
+
+
+
+
+explain awk command in linux with example
+
+
+The awk command is a powerful text-processing tool in Linux that operates on structured data (usually text) in a file or from the standard input. It works with 
+records (lines) and fields (columns) and allows you to specify patterns and actions to manipulate and process the data. awk derives its name from the initials of its
+ creators: Alfred Aho, Peter Weinberger, and Brian Kernighan.
+
+
+
+
+
+Example 1 - Printing Columns
+
+Let's start with a simple example where we have a file named data.txt with the following content:
+
+Copy code
+Name Age Department
+Alice 25 HR
+Bob 30 Finance
+Charlie 22 IT
+David 28 Marketing
+Suppose we want to print only the "Name" and "Department" columns from this file. We can achieve this using awk:
+
+bash
+Copy code
+awk '{ print $1, $3 }' data.txt
+The output will be:
+
+Copy code
+Name Department
+Alice HR
+Bob Finance
+Charlie IT
+David Marketing
+
+
+Example 2 - Filtering Rows
+
+Suppose we want to filter out employees whose age is less than 25. We can do this by adding a pattern to the awk command:
+
+bash
+Copy code
+awk '$2 >= 25 { print $1, $2 }' data.txt
+The output will be:
+
+Copy code
+Alice 25
+Bob 30
+David 28
+
+
+
+
+Name,Age,Department
+Alice,25,HR
+Bob,30,Finance
+Charlie,22,IT
+David,28,Marketing
+Now, let's use awk with a comma (,) as the field separator to extract and print the "Name" and "Department" columns from the CSV file:
+
+bash
+Copy code
+awk -F ',' '{ print $1, $3 }' data.csv
+The output will be:
+
+Copy code
+Name Department
+Alice HR
+Bob Finance
+Charlie IT
+David Marketing
+
+
+
+
+
+
+
+
+
+explain sed command in linux with examples
+
+
+The sed command in Linux is a powerful stream editor used to perform text transformations on a file or input stream. It is often used for tasks like search and
+ replace, text substitutions, text filtering, and more. The name "sed" stands for "stream editor."
+
+The basic syntax of the sed command is:
+
+arduino
+Copy code
+sed OPTIONS 'expression' input_file
+Here's an explanation of each component:
+
+OPTIONS: Optional command-line flags that modify the behavior of sed. Common flags include -i for in-place editing (directly modify the input file), -n to suppress 
+automatic printing of the pattern space, and others.
+
+'expression': The sed expression, also known as a sed script, defines the text transformations to be performed. It can consist of one or more sed commands, each 
+specifying an operation to be applied to the input data.
+
+input_file: The file to be processed by sed. If not provided, sed will read data from the standard input.
+
+Now, let's look at some examples to illustrate how the sed command works:
+
+Example 1 - Search and Replace:
+
+Suppose we have a file named example.txt with the following content:
+
+vbnet
+Copy code
+Hello, this is an example.
+Let's replace some text.
+This is a simple example.
+We want to replace all occurrences of "example" with "demo" and print the result to the terminal:
+
+bash
+Copy code
+sed 's/example/demo/g' example.txt
+The output will be:
+
+vbnet
+Copy code
+Hello, this is an demo.
+Let's replace some text.
+This is a simple demo.
+Explanation:
+
+s/old_text/new_text/g is the substitution command in sed. It searches for old_text and replaces it with new_text globally (g) within each line.
+Example 2 - In-Place Editing:
+
+If you want to modify the file directly (in-place editing), you can use the -i flag:
+
+bash
+Copy code
+sed -i 's/example/demo/g' example.txt
+After running this command, the content of example.txt will be:
+
+vbnet
+Copy code
+Hello, this is an demo.
+Let's replace some text.
+This is a simple demo.
+Explanation:
+
+The -i flag enables in-place editing, so the changes made by sed are directly written back to the input file.
+Example 3 - Deleting Lines:
+
+Let's delete lines containing the word "example" from example.txt:
+
+bash
+Copy code
+sed '/example/d' example.txt
+The output will be:
+
+vbnet
+Copy code
+Let's replace some text.
+Explanation:
+
+The /example/d command tells sed to delete (d) lines containing the word "example."
+Example 4 - Using Extended Regular Expressions:
+
+You can use extended regular expressions with sed by enabling the -E flag:
+
+bash
+Copy code
+sed -E 's/(hello|hi)/greetings/g' example.txt
+The output will be:
+
+vbnet
+Copy code
+greetings, this is an example.
+Let's replace some text.
+This is a simple example.
+Explanation:
+
+The -E flag enables extended regular expressions, allowing us to use the | (alternation) operator to match either "hello" or "hi" and replace them with "greetings."
+These examples showcase the versatility of the sed command for performing text transformations in Linux. It is a valuable tool for text processing, batch editing of
+ files, and more.
+
+
+
+
+
+
+
+
+
+
+explain curl command in linux with examples
+
+ChatGPT
+The curl command in Linux is a versatile tool used to make network requests and transfer data to or from a server or URL. It supports various protocols, including
+ HTTP, HTTPS, FTP, FTPS, SCP, SFTP, LDAP, and more. curl is particularly useful for interacting with web APIs, downloading files, testing websites, and performing 
+various network-related tasks from the command line.
+
+The basic syntax of the curl command is:
+
+css
+Copy code
+curl [OPTIONS] [URL]
+Here's an explanation of some common options and examples to showcase the capabilities of the curl command:
+
+Example 1 - Downloading a File:
+
+You can use curl to download a file from a URL and save it to your local machine. For example, let's download an image from a URL:
+
+bash
+Copy code
+curl -o image.jpg https://example.com/image.jpg
+In this example:
+
+-o image.jpg: The -o option specifies the output file name (image.jpg in this case) where the downloaded content will be saved.
+https://example.com/image.jpg: This is the URL of the image you want to download.
+Example 2 - Making HTTP GET Request:
+
+curl can be used to make HTTP GET requests to retrieve data from a server. Let's request data from a public API:
+
+bash
+Copy code
+curl https://api.example.com/data
+In this example, curl will make a GET request to https://api.example.com/data and display the response on the terminal.
+
+Example 3 - Sending Data with POST Request:
+
+You can use curl to send data via a POST request. For example, let's send a JSON payload to a web API:
+
+bash
+Copy code
+curl -X POST -H "Content-Type: application/json" -d '{"name": "John", "age": 30}' https://api.example.com/users
+In this example:
+
+-X POST: The -X option specifies the HTTP method, which is POST in this case.
+-H "Content-Type: application/json": The -H option sets the request header to specify the content type as JSON.
+-d '{"name": "John", "age": 30}': The -d option sends the JSON payload in the request body.
+https://api.example.com/users: This is the URL of the API endpoint.
+Example 4 - Following Redirects:
+
+By default, curl follows redirects when making requests. You can use the -L option to instruct curl to follow redirects:
+
+bash
+Copy code
+curl -L https://example.com
+In this example, curl will follow any redirects and display the final response obtained after following them.
+
+These examples demonstrate some common use cases of the curl command in Linux. However, curl offers a wide range of options and capabilities, including custom headers,
+ authentication, form submissions, and more. You can refer to the curl manual (man curl) or the official documentation for more details on the various options and 
+features available.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+explain wget command in linux with examples
+
+The wget command in Linux is used for non-interactive downloading of files from the web. It is a command-line utility that supports various protocols like
+ HTTP, HTTPS, FTP, FTPS, and more. With wget, you can easily download files, recursively download directories, and resume interrupted downloads.
+
+The basic syntax of the wget command is:
+
+css
+Copy code
+wget [OPTIONS] [URL]
+Here's an explanation of some common options and examples to showcase the capabilities of the wget command:
+
+Example 1 - Downloading a File:
+
+You can use wget to download a file from a URL and save it to your local machine. For example, let's download a Linux distribution ISO file:
+
+bash
+Copy code
+wget https://example.com/linux-distro.iso
+In this example:
+
+https://example.com/linux-distro.iso: This is the URL of the file you want to download.
+Example 2 - Specifying Output File Name:
+
+By default, wget saves the downloaded file with the same name as the one on the server. You can use the -O option to specify a different output file name:
+
+bash
+Copy code
+wget -O new-file-name.jpg https://example.com/image.jpg
+In this example:
+
+-O new-file-name.jpg: The -O option specifies the output file name (new-file-name.jpg in this case) where the downloaded content will be saved.
+https://example.com/image.jpg: This is the URL of the image you want to download.
+Example 3 - Recursive Download (Downloading Entire Directory):
+
+With wget, you can recursively download an entire directory from a web server. For example, let's download all files from a directory:
+
+bash
+Copy code
+wget -r -np https://example.com/directory/
+In this example:
+
+-r: The -r option enables recursive download, allowing wget to download all files and subdirectories in the specified directory.
+-np: The -np option prevents wget from ascending to the parent directory, ensuring that only content from the specified directory is downloaded.
+https://example.com/directory/: This is the URL of the directory you want to download.
+Example 4 - Resuming Interrupted Downloads:
+
+If a download is interrupted or fails, wget allows you to resume the download from where it left off using the -c option:
+
+bash
+Copy code
+wget -c https://example.com/large-file.zip
+In this example, wget will resume the download of large-file.zip from the point of interruption, rather than starting the download from scratch.
+
+Example 5 - Limiting Download Speed:
+
+If you want to limit the download speed, you can use the --limit-rate option:
+
+bash
+Copy code
+wget --limit-rate=500k https://example.com/large-file.zip
+In this example, wget will limit the download speed to 500 KB/s.
+
+These examples showcase some common use cases of the wget command in Linux. wget is a powerful tool for downloading files from the web with various options and 
+capabilities, making it a valuable utility for automation, downloading large files, and mirroring websites. For more information and detailed options, you can refer 
+to the wget manual (man wget).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The find command in Linux is a powerful utility used to search for files and directories within a directory hierarchy based on various criteria. It allows you to 
+locate files based on their names, types, sizes, timestamps, and more. The find command is extremely versatile and useful for performing complex file operations
+ efficiently.
+
+The basic syntax of the find command is:
+
+css
+Copy code
+find [path] [expression]
+Here's an explanation of the main components:
+
+path: The starting directory where the search will begin. If not specified, find will use the current directory.
+
+expression: The expression that defines the criteria for finding files. It can include various tests, actions, and logical operators to refine the search.
+
+Now, let's look at some examples to demonstrate how the find command works:
+
+Example 1 - Find Files by Name:
+
+To find all files with a specific name, use the -name option:
+
+bash
+Copy code
+find /path/to/directory -name "filename.txt"
+This command will search for all files named "filename.txt" within the specified directory and its subdirectories.
+
+Example 2 - Find Files by Type:
+
+To find files of a specific type, use the -type option:
+
+bash
+Copy code
+find /path/to/directory -type f
+This command will find all regular files (excluding directories and symbolic links) within the specified directory and its subdirectories.
+
+Example 3 - Find Directories:
+
+To find directories, use the -type option with the value d:
+
+bash
+Copy code
+find /path/to/directory -type d
+This command will find all directories within the specified directory and its subdirectories.
+
+Example 4 - Find Files by Size:
+
+To find files based on their size, use the -size option:
+
+bash
+Copy code
+find /path/to/directory -type f -size +1M
+This command will find all regular files larger than 1 megabyte within the specified directory and its subdirectories. You can use suffixes like M (megabytes) 
+and k (kilobytes) to specify the size.
+
+Example 5 - Find Files by Timestamps:
+
+To find files based on their creation, modification, or access times, use the -ctime, -mtime, or -atime options, respectively:
+
+bash
+Copy code
+find /path/to/directory -type f -mtime -7
+This command will find all regular files modified within the last 7 days within the specified directory and its subdirectories. The -mtime option accepts a numeric
+ value indicating the number of days.
+
+Example 6 - Executing Actions on Found Files:
+
+You can perform actions on the files found by using the -exec option:
+
+bash
+Copy code
+find /path/to/directory -type f -name "*.txt" -exec rm {} \;
+This command will find all .txt files within the specified directory and its subdirectories and remove them. The {} is a placeholder for each found file, and \; 
+indicates the end of the -exec command.
+
+These examples demonstrate some common use cases of the find command in Linux. The find command is an essential tool for system administrators, developers, and users
+ to locate and process files based on various criteria, making it a versatile and valuable utility for managing file systems. For more information and advanced 
+options, refer to the find manual (man find).
+
+
+
+
+
+
+
+
+
+
+
+
+
+explain xargs command in linux with examples
+ChatGPT
+The xargs command in Linux is a powerful utility that reads items from standard input or a file and constructs and executes commands based on those items. It is 
+particularly useful for passing arguments to other commands or executing commands in batches, especially when dealing with large sets of data. xargs is commonly used
+ in combination with other commands such as find, grep, and ls.
+
+The basic syntax of the xargs command is:
+
+css
+Copy code
+xargs [OPTIONS] [COMMAND]
+Here's an explanation of the main components:
+
+OPTIONS: Optional command-line flags that modify the behavior of xargs. Common flags include -n to specify the maximum number of arguments per command, -I to specify
+ a placeholder for the arguments, and more.
+
+
+COMMAND: The command that will be executed with the items passed from standard input or a file. If not provided, xargs will use the default command echo, which simply 
+prints the items.
+
+Now, let's look at some examples to illustrate how the xargs command works:
+
+Example 1 - Passing Arguments to a Command:
+
+Suppose we have a file named file_list.txt containing a list of filenames. We want to count the number of lines in each file using the wc -l command:
+
+bash
+Copy code
+cat file_list.txt | xargs wc -l
+In this example, xargs reads the filenames from file_list.txt and passes them as arguments to the wc -l command, which counts the number of lines in each file.
+
+Example 2 - Specifying the Maximum Number of Arguments:
+
+If you want to limit the number of arguments passed to each command, you can use the -n option:
+
+bash
+Copy code
+cat file_list.txt | xargs -n 2 grep "search_term"
+In this example, xargs reads two filenames at a time from file_list.txt and passes them as arguments to the grep "search_term" command, searching for the specified 
+term in each file.
+
+Example 3 - Using Placeholder for Arguments:
+
+The -I option allows you to use a placeholder (usually {}) to represent the arguments in the command:
+
+bash
+Copy code
+find /path/to/directory -type f -name "*.txt" -print0 | xargs -0 -I {} mv {} /path/to/destination/
+In this example, we use find to locate all .txt files in /path/to/directory, and then xargs moves each found file to /path/to/destination/.
+
+Example 4 - Handling Spaces in Filenames:
+
+If filenames contain spaces, you can use the -0 option along with find -print0 to handle them properly:
+
+bash
+Copy code
+find /path/to/directory -type f -name "*.txt" -print0 | xargs -0 grep "search_term"
+In this example, find -print0 outputs filenames separated by null characters, and xargs -0 uses these null characters as the separator to pass filenames with spaces
+ correctly to the grep command.
+
+These examples showcase some common use cases of the xargs command in Linux. xargs is a powerful and flexible tool for efficiently constructing and executing commands,
+ making it a valuable utility for handling large sets of data and automating command execution. For more information and advanced options, refer to the xargs manual
+ (man xargs).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+how to check server status using shell script
+
+#!/bin/bash
+ server_ip=$1
+ ping $server_ip -c 2
+ if [ $? -eq 0];
+ then
+ echo "$server_ip is up"
+ else
+ echo "$server_ip not runnig"
+ fi
+
+
+
+
+Write a shell script function to find and kill all the zombie processes.
+
+
+#!/bin/bash
+
+kill_zombies() {
+  # Get the process IDs of all zombie processes
+  zombie_pids=$(ps aux | grep Z | awk '{print $2}')
+
+  # Check if there are any zombie processes
+  if [ -z "$zombie_pids" ]; then
+    echo "No zombie processes found."
+    return
+  fi
+
+  # Kill each zombie process
+  for pid in $zombie_pids; do
+    echo "Killing zombie process: $pid"
+    kill -9 "$pid"
+  done
+
+  echo "All zombie processes killed."
+}
+
+# Call the function
+kill_zombies
+
+
+
+
+
+
+
+
+
+
+Find the first 10 biggest files in the file system and write the output to a file
+
+
+#!/bin/bash
+
+output_file="biggest_files.txt"
+search_directory="/"
+
+# Find the 10 biggest files in the file system
+find "$search_directory" -type f -exec du -h {} + | sort -rh | head -n 10 > "$output_file"
+
+echo "The 10 biggest files have been written to $output_file."
+
+
+
+
+
+
+
+
+
+
+
+
+Shell script to gracefully unmount a disk.
+
+
+
+
+#!/bin/bash
+
+disk="/dev/sdb1"
+
+# Check if the disk is already mounted
+if grep -qs "$disk" /proc/mounts; then
+  # Unmount the disk gracefully
+  umount -l "$disk"
+
+  # Check if unmounting was successful
+  if [ $? -eq 0 ]; then
+    echo "Disk $disk has been unmounted gracefully."
+  else
+    echo "Failed to unmount disk $disk."
+  fi
+else
+  echo "Disk $disk is not currently mounted."
+fi
+
+
+
+
+
+
+
+
+
+
+Shell script to monitor CPU, Memory, and Disk usage and send the output to a file in table format and send an alert if either of them exceeds a certain threshold.
+
+
+
+
+#!/bin/bash
+
+output_file="system_usage.txt"
+threshold_cpu=80  # Set the CPU threshold percentage (modify as needed)
+threshold_mem=80  # Set the memory threshold percentage (modify as needed)
+threshold_disk=80 # Set the disk threshold percentage (modify as needed)
+
+# Function to monitor system usage
+monitor_system_usage() {
+  local cpu_usage=$(top -bn1 | awk '/^%Cpu/ {print 100-$8}')
+  local mem_usage=$(free | awk '/Mem/ {printf "%.2f", $3/$2 * 100}')
+  local disk_usage=$(df -h / | awk '/\// {print $5}' | tr -d '%')
+
+  # Write usage details to the output file in table format
+  printf "| %-12s | %-12s | %-12s |\n" "CPU Usage" "Memory Usage" "Disk Usage" >> "$output_file"
+  printf "| %-12s | %-12s | %-12s |\n" "${cpu_usage}%" "${mem_usage}%" "${disk_usage}%" >> "$output_file"
+
+  # Check if any usage exceeds the defined threshold
+  if (( $(echo "$cpu_usage > $threshold_cpu" | bc -l) )); then
+    echo "Alert: CPU usage is above the threshold of ${threshold_cpu}%!"
+  fi
+  if (( $(echo "$mem_usage > $threshold_mem" | bc -l) )); then
+    echo "Alert: Memory usage is above the threshold of ${threshold_mem}%!"
+  fi
+  if (( $(echo "$disk_usage > $threshold_disk" | bc -l) )); then
+    echo "Alert: Disk usage is above the threshold of ${threshold_disk}%!"
+  fi
+}
+
+# Call the function to monitor system usage
+monitor_system_usage
+
+
+
+
+
+
+
+
+
+
+Shell script to find the files created and their sizes. It should accept the number of days as input. Or a from and to date format as inputs.
+
+
+#!/bin/bash
+
+# Function to find files created within a specified number of days or between given from and to dates
+find_files_by_date() {
+  local days="$1"
+  local from_date="$2"
+  local to_date="$3"
+  local output_file="file_sizes.txt"
+
+  # Find files based on the provided conditions and retrieve their sizes
+  if [[ -n "$days" ]]; then
+    find . -type f -mtime -$days -exec ls -lh {} + | awk '{printf "%-40s %s\n", $NF, $5}' > "$output_file"
+  elif [[ -n "$from_date" && -n "$to_date" ]]; then
+    find . -type f -newermt "$from_date" ! -newermt "$to_date" -exec ls -lh {} + | awk '{printf "%-40s %s\n", $NF, $5}' > "$output_file"
+  else
+    echo "Invalid input. Please specify either the number of days or the from and to dates."
+    return 1
+  fi
+
+  echo "Files created and their sizes:"
+  cat "$output_file"
+}
+
+# Example usage 1: find_files_by_date 7
+# This will find files created within the last 7 days
+# Example usage 2: find_files_by_date "2023-01-01" "2023-01-31"
+# This will find files created between January 1, 2023, and January 31, 2023
+
+# Uncomment the desired usage example and provide the necessary inputs
+# find_files_by_date "$@"
+
+
+
+
+
+
+
+
+
+Write a shell script to automate the process of creating new user accounts on a Linux server and setting up their permissions and SSH access.
+
+
+
+
+#!/bin/bash
+
+# Function to create a new user account
+create_user() {
+  local username="$1"
+  local password="$2"
+
+  # Create the user account
+  sudo useradd -m "$username"
+
+  # Set the password for the user
+  echo "$username:$password" | sudo chpasswd
+
+  # Allow the user to run commands with sudo (optional)
+  sudo usermod -aG sudo "$username"
+
+  echo "User account $username has been created."
+}
+
+# Function to configure SSH access for the user
+configure_ssh() {
+  local username="$1"
+  local ssh_key="$2"
+
+  # Create a .ssh directory in the user's home directory
+  sudo mkdir -p "/home/$username/.ssh"
+  
+  # Set the correct permissions for the .ssh directory
+  sudo chmod 700 "/home/$username/.ssh"
+
+  # Set the SSH public key for the user
+  echo "$ssh_key" | sudo tee -a "/home/$username/.ssh/authorized_keys" > /dev/null
+  
+  # Set the correct permissions for the authorized_keys file
+  sudo chmod 600 "/home/$username/.ssh/authorized_keys"
+
+  # Set the owner and group of the .ssh directory and authorized_keys file
+  sudo chown -R "$username":"$username" "/home/$username/.ssh"
+
+  echo "SSH access has been configured for user $username."
+}
+
+# Example usage:
+# Uncomment the following lines and provide the necessary inputs
+# create_user "newuser" "password123"
+# configure_ssh "newuser" "ssh-rsa <public_key>"
+
+# Uncomment the desired usage example and provide the necessary inputs
+# create_user "$1" "$2"
+# configure_ssh "$1" "$2"
+
+
+
+
+
+
+
+Write a shell script to the list of users logged in by date and write it to an output file.
+
+#!/bin/bash
+
+output_file="logged_in_users.txt"
+date_format="%Y-%m-%d"  # Modify the date format as needed
+
+# Get the current date
+current_date=$(date +"$date_format")
+
+# List the users logged in on the current date
+logged_in_users=$(who | awk '{print $1}' | sort -u)
+
+# Write the logged in users to the output file
+echo "Users logged in on $current_date:" > "$output_file"
+echo "$logged_in_users" >> "$output_file"
+
+echo "The list of logged in users has been written to $output_file."
+
+
+
+
+
+
+
+
+
+
+Shell script to Copy files recursively to remote hosts
+
+
+#!/bin/bash
+
+source_dir="/path/to/source/dir"
+destination_dir="/path/to/destination/dir"
+remote_hosts=("remote1" "remote2" "remote3")
+
+# Function to copy files recursively to remote hosts
+copy_files_to_remote_hosts() {
+  local file_pattern="$1"
+  for host in "${remote_hosts[@]}"; do
+    echo "Copying files to $host..."
+    scp -r "$source_dir/$file_pattern" "$host:$destination_dir"
+    echo "Files copied to $host."
+  done
+}
+
+# Example usage: copy_files_to_remote_hosts "*.txt"
+# This will copy all files with the .txt extension from the source directory to the destination directory on each remote host
+
+# Uncomment the desired usage example and provide the necessary inputs
+# copy_files_to_remote_hosts "$@"
+
+
+
+
+
+
+
+Shell script that displays the number of failed login attempts by IP address and location.
+
+
+
+
+
+#!/bin/bash
+
+# Parse the system logs and display the number of failed login attempts by IP address and location
+display_failed_login_attempts() {
+  local logfile="/var/log/auth.log"
+  local output_file="failed_login_attempts.txt"
+
+  # Extract the failed login attempts from the system logs and count them by IP address
+  awk '/Failed password/ { print $(NF-3) }' "$logfile" | sort | uniq -c | sort -rn > "$output_file"
+
+  # Display the number of failed login attempts by IP address and location
+  echo "Failed Login Attempts by IP Address and Location:"
+  echo "----------------------------------------------"
+  while read -r count ip; do
+    location=$(geoiplookup "$ip" | awk -F ', ' '{print $2}')
+    printf "%-15s %-15s %s\n" "$count" "$ip" "$location"
+  done < "$output_file"
+
+  echo "Failed login attempts have been recorded in $output_file."
+}
+
+# Example usage: display_failed_login_attempts
+# This will parse the system logs and display the number of failed login attempts by IP address and location
+
+# Uncomment the desired usage example
+# display_failed_login_attempts
+
+
+
+
+
+
+
+
+
+
+
+
+
+Shell script parses a log file and forwards a specific value with a timestamp to an output file.
+
+#!/bin/bash
+
+log_file="/path/to/log/file.log"
+output_file="parsed_output.txt"
+pattern="Your desired pattern"  # Modify this with the pattern you want to search for
+
+# Parse the log file and forward the specific value with a timestamp to the output file
+parse_log_file() {
+  grep "$pattern" "$log_file" | awk '{print $1, $2, $3}' > "$output_file"
+  echo "Parsed output has been written to $output_file."
+}
+
+# Example usage: parse_log_file
+# This will search for the specified pattern in the log file and extract the timestamp with the specific value
+
+# Uncomment the desired usage example
+# parse_log_file
+
+
+
+
+
+
+
+
+
+
+
+
+
+Write a shell script to automate the process of rotating log files and compressing old files to save disk space.
+
+
+#!/bin/bash
+
+log_dir="/path/to/log/directory"
+max_log_files=10
+compress_old_files=true
+
+# Function to rotate log files and compress old files
+rotate_and_compress_logs() {
+  cd "$log_dir" || exit 1
+
+  # Get a list of log files sorted by modification time (oldest first)
+  log_files=($(ls -rt))
+
+  # Calculate the number of log files to remove
+  num_files=$((${#log_files[@]} - max_log_files))
+
+  if [ "$num_files" -gt 0 ]; then
+    # Remove excess log files
+    remove_files=("${log_files[@]:0:$num_files}")
+    rm "${remove_files[@]}"
+
+    echo "Removed $num_files log files."
+  fi
+
+  if [ "$compress_old_files" = true ]; then
+    # Compress older log files
+    older_files=("${log_files[@]:-$num_files}")
+    for file in "${older_files[@]}"; do
+      gzip "$file"
+      echo "Compressed $file."
+    done
+  fi
+
+  echo "Log files have been rotated and compressed."
+}
+
+# Example usage: rotate_and_compress_logs
+# This will rotate log files in the specified directory, keeping the latest 10 files and compressing the older files
+
+# Uncomment the desired usage example
+# rotate_and_compress_logs
+
+
+
+
+
+
+
+Write a shell script to check the status of a list of URLs and send an email notification if any of them are down.
+
+
+
+#!/bin/bash
+
+url_list=("http://example.com" "http://example.org" "http://example.net")
+recipient="your-email@example.com"
+sender="sender-email@example.com"
+subject="Website Status Notification"
+
+# Function to check the status of URLs and send email notifications if any of them are down
+check_website_status() {
+  local failed_urls=()
+  
+  for url in "${url_list[@]}"; do
+    response=$(curl -Is "$url" | head -n 1)
+    
+    if [[ ! "$response" =~ ^HTTP/1\.[01]\ [23] ]]; then
+      failed_urls+=("$url")
+    fi
+  done
+
+  if [ ${#failed_urls[@]} -gt 0 ]; then
+    message="The following websites are down:\n\n${failed_urls[*]}"
+    echo -e "$message" | mailx -s "$subject" -r "$sender" "$recipient"
+    echo "Website status notification sent to $recipient."
+  else
+    echo "All websites are up."
+  fi
+}
+
+# Example usage: check_website_status
+# This will check the status of the URLs in the list and send an email notification if any of them are down.
+
+# Uncomment the desired usage example
+# check_website_status
+
+
+
+
+
+
+
+
+
+Write a shell script to automate the process of updating a list of servers with the latest security patches.
+
+
+
+#!/bin/bash
+
+server_list=("server1" "server2" "server3")
+username="your-username"
+patch_manager="apt-get"  # Modify this based on the package manager of your server's operating system
+
+# Function to update servers with the latest security patches
+update_servers() {
+  local server
+  for server in "${server_list[@]}"; do
+    echo "Updating $server..."
+    ssh "$username@$server" "$patch_manager update && $patch_manager upgrade -y"
+    echo "$server has been updated."
+  done
+
+  echo "All servers have been updated with the latest security patches."
+}
+
+# Example usage: update_servers
+# This will update all servers in the server list with the latest security patches
+
+# Uncomment the desired usage example
+# update_servers
+
+
+
+
+
+
+
+
+
+In AWS DevOps, shell scripts are widely used to automate various tasks and interact with AWS services and resources. They play a critical role in managing 
+infrastructure, deploying applications, and orchestrating workflows efficiently. Let's explore real-time use cases of shell scripts in AWS DevOps with specific
+ examples:
+
+Automated Infrastructure Provisioning:
+Shell scripts are used to automate the provisioning of AWS resources, such as EC2 instances, RDS databases, and S3 buckets.
+
+Example:
+
+bash
+Copy code
+#!/bin/bash
+
+# Create an EC2 instance
+aws ec2 run-instances --image-id ami-xxxxxxxx --instance-type t2.micro --security-group-ids sg-xxxxxxxx --key-name my-keypair
+Infrastructure Configuration Management:
+Shell scripts are used to configure and customize AWS resources after provisioning.
+
+Example:
+
+bash
+Copy code
+#!/bin/bash
+
+# Install web server on an EC2 instance
+ssh -i my-keypair.pem ec2-user@instance_ip "sudo yum update -y && sudo yum install -y httpd"
+Automated Deployment:
+Shell scripts are used to automate the deployment of applications to AWS resources, such as EC2 instances or AWS Lambda functions.
+
+Example:
+
+bash
+Copy code
+#!/bin/bash
+
+# Deploy application to an EC2 instance
+scp -i my-keypair.pem my-app.jar ec2-user@instance_ip:/path/to/application/
+ssh -i my-keypair.pem ec2-user@instance_ip "sudo systemctl restart my-app"
+Data Backup and Restore:
+Shell scripts are used to automate data backup and restoration for AWS resources like RDS databases or S3 buckets.
+
+Example:
+
+bash
+Copy code
+#!/bin/bash
+
+# Backup an RDS database
+aws rds create-db-snapshot --db-instance-identifier my-db-instance --db-snapshot-identifier my-snapshot
+
+# Restore an RDS database from a snapshot
+aws rds restore-db-instance-from-db-snapshot --db-instance-identifier my-restored-instance --db-snapshot-identifier my-snapshot
+Automated Scaling:
+Shell scripts can be used in conjunction with AWS CLI to automate auto-scaling operations based on predefined metrics.
+
+Example:
+
+bash
+Copy code
+#!/bin/bash
+
+# Set auto-scaling group desired capacity
+aws autoscaling set-desired-capacity --auto-scaling-group-name my-auto-scaling-group --desired-capacity 5
+Cost Optimization:
+Shell scripts can be utilized to automate cost optimization tasks, such as terminating idle EC2 instances or stopping instances outside of business hours.
+
+Example:
+
+bash
+Copy code
+#!/bin/bash
+
+# Terminate EC2 instances that have been idle for a certain period
+aws ec2 terminate-instances --instance-ids i-xxxxxxxx i-yyyyyyyy
+Automated Backup to S3:
+Shell scripts can be used to automate backup operations to Amazon S3 for critical data and configurations.
+
+Example:
+
+bash
+Copy code
+#!/bin/bash
+
+# Sync local directory with S3 bucket
+aws s3 sync /path/to/local/directory s3://my-backup-bucket/
+Automated Monitoring and Alerting:
+Shell scripts are used to automate monitoring tasks and trigger alerts based on AWS CloudWatch metrics.
+
+Example:
+
+bash
+Copy code
+#!/bin/bash
+
+# Create a CloudWatch alarm to trigger an SNS notification
+aws cloudwatch put-metric-alarm --alarm-name high-cpu --comparison-operator GreaterThanOrEqualToThreshold --evaluation-periods 1 --metric-name
+ CPUUtilization --namespace AWS/EC2 --period 60 --statistic Average --threshold 90 --alarm-actions arn:aws:sns:us-west-1:123456789012:my-sns-topic
+These real-time use cases demonstrate how shell scripts are utilized in AWS DevOps to automate tasks, manage infrastructure, and streamline workflows, 
+resulting in a more efficient and scalable cloud environment. Shell scripts, when combined with AWS CLI and SDKs, provide immense power and flexibility to DevOps 
+engineers working in an AWS environment.
+
+
+
+
+
+
+
+
+
+
+
+
+Syntax and Usability:
+
+curl uses a more flexible and complex command-line syntax with numerous options and parameters.
+wget has a simpler and more straightforward command-line syntax.
+Supported Protocols:
+
+curl supports a wide range of protocols, including HTTP, HTTPS, FTP, FTPS, SCP, SFTP, TFTP, LDAP, POP3, IMAP, SMTP, and more.
+wget primarily focuses on HTTP, HTTPS, and FTP protocols.
+Output Handling:
+
+curl displays the response data directly in the console by default.
+wget saves the downloaded files to the local file system by default.
+Download Resuming:
+
+curl supports download resuming, allowing you to continue interrupted downloads.
+wget also supports download resuming and is particularly well-known for this feature.
+File Mirroring and Recursive Download:
+
+wget excels at file mirroring and recursive downloading, allowing you to download an entire directory or website with all its contents, including subdirectories
+ and linked files.
+curl does not have built-in features specifically for file mirroring and recursive downloading, although it can be combined with other tools or scripts to achieve
+ similar functionality.
+SSL/TLS Certificate Verification:
+
+curl verifies SSL/TLS certificates by default and provides options to customize the certificate validation process.
+wget also verifies SSL/TLS certificates but has a more relaxed certificate verification behavior by default.
+Supported Platforms:
+
+curl is available on a wide range of platforms, including Linux, macOS, Windows, and various Unix-like systems.
+wget is also available on multiple platforms, including Linux, macOS, Windows, and Unix-like systems.
+
+
+
+
+
+Curl is generally considered to be faster than wget because it supports multiple connections at once, allowing it to download files in parallel. This can be 
+especially
+ useful when downloading large files or when downloading multiple files at once. Wget, on other hand, is designed to be a reliable tool that can handle slow or
+ unstable connections, so it may be better suited for certain types of downloads.
+
+curl has some additional security features that make it a more secure tool. For example, curl can check SSL certificates to ensure that they are valid and have not 
+been tampered with. It can also use a variety of encryption methods, including SSL and TLS.
+
+curl is generally considered to be more portable because it is a standalone program that does not require any external libraries. Wget, on other hand, relies on GNU
+ Wget library, which may not be available on all systems.
+
+
+
+Curl
+Download files from internet
+
+Upload data to a server
+
+Interacte with APIs
+
+Test web services
+
+Download data from a database
+
+Scraping web pages
+
+Wget
+Download files from internet
+
+Download entire websites for offline viewing
+
+Download large files that may be interrupted
+
+Download files with slow or unstable connections
+
+Download files over a slow network connection
+
+
+
+
+netstat,nslookup,ping,dig,ifconfig
+
+
+
+
+
+Linux networking commands are essential tools for managing and troubleshooting network-related tasks on Linux systems. Here are some of the most widely used 
+networking commands along with examples:
+
+ifconfig (ip command in modern systems):
+The ifconfig command displays information about network interfaces and allows you to configure them. On modern systems, ip is the recommended command.
+
+Example:
+
+bash
+Copy code
+ip addr show
+This command shows the IP addresses and network configuration for all active network interfaces.
+
+ping:
+The ping command is used to check the reachability of a remote host or verify basic network connectivity.
+
+Example:
+
+bash
+Copy code
+ping google.com
+This command sends ICMP echo requests to the Google website and displays the response time and packet loss.
+
+traceroute (or tracepath):
+The traceroute command helps to identify the path packets take from the local system to a remote host.
+
+Example:
+
+bash
+Copy code
+traceroute google.com
+This command displays the intermediate hops and round-trip times between the local system and the Google website.
+
+netstat (ss command in modern systems):
+The netstat command displays network statistics, active connections, and routing tables. On modern systems, ss is the recommended command.
+
+Example:
+
+bash
+Copy code
+ss -tuln
+This command shows all listening TCP and UDP sockets, along with their associated ports.
+
+ifup / ifdown:
+The ifup and ifdown commands are used to bring up or take down network interfaces manually.
+
+Example:
+
+bash
+Copy code
+sudo ifdown eth0
+sudo ifup eth0
+These commands take down and bring up the eth0 network interface.
+
+route:
+The route command allows you to view and manipulate the kernel's IP routing table.
+
+Example:
+
+bash
+Copy code
+route -n
+This command displays the kernel's routing table with IP addresses and gateways.
+
+ip route:
+The ip route command is an alternative to the older route command and provides more advanced features for managing routing tables.
+
+Example:
+
+bash
+Copy code
+ip route show
+This command shows the kernel's routing table using the ip command.
+
+dig (or nslookup):
+The dig and nslookup commands are used for DNS (Domain Name System) queries to resolve domain names to IP addresses.
+
+Example:
+
+bash
+Copy code
+dig google.com
+This command performs a DNS query for the Google website's IP address.
+
+nc (netcat):
+The nc command is a versatile networking utility used for network testing, port scanning, and data transfer.
+
+Example:
+
+bash
+Copy code
+nc -vz google.com 80
+This command checks if port 80 (HTTP) is open on the Google website.
+
+iptables (or nftables in modern systems):
+The iptables command (or nft on modern systems) is used to configure packet filtering rules and manage firewall settings.
+
+Example:
+
+bash
+Copy code
+sudo iptables -L
+This command displays the current firewall rules set using iptables.
+
+These are some of the most widely used Linux networking commands that are crucial for managing and troubleshooting network-related tasks on Linux systems.
+ They provide essential information and tools to monitor, configure, and diagnose network connectivity and performance.
+
+
+
+
+
+
+Netstat command displays various network related information such as network connections, routing tables, interface statistics, masquerade connections,
+ multicast memberships etc.,
+
+
+
+
+
+Linux ifconfig stands for interface configurator. It is one of the most basic commands used in network inspection. 
+
+ifconfig is used to initialize an interface, configure it with an IP address, and enable or disable it. It is also used to display the route and the network interface. 
+
+Basic information displayed upon using ifconfig are:
+
+IP address
+MAC address
+MTU(Maximum Transmission Unit) 
+
+
+
+
+
+
+
+Linux traceroute is one of the most useful commands in networking. It is used to troubleshoot the network. It detects the delay and determines the pathway to your
+ target. It basically helps in the following ways:
+
+It provides the names and identifies every device on the path. 
+It follows the route to the destination
+It determines where the network latency comes from and reports it.
+
+
+The output provides the following information:
+
+The specified hostname
+Size of the packets
+The maximum number of hops required.
+The IP address.
+
+
+
+
+Linux ping is one of the most used network troubleshooting commands. It basically checks for the network connectivity between two nodes.
+
+ping stands for Packet INternet Groper.
+
+The ping command sends the ICMP echo request to check the network connectivity.
+
+It keeps executing until it is interrupted.
+
+
+
+
+
+
+8.dig
+Linux dig command stands for Domain Information Groper. This command is used in DNS lookup to query the DNS name server. It is also used to troubleshoot DNS related
+ issues.
+
+It is mainly used to verify DNS mappings, MX Records, host addresses, and all other DNS records for a better understanding of the DNS topography.
+
+This command is an improvised version of nslookup command.
+
+
+
+
+
+Telnet is used for remotely connecting to a server.
+
+Like telnet, ssh is also used to remotely connect to a server.
+
+The difference being, telnet sends password in plain-text and ssh sends encrypted password for authentication.
+
+Telnet is used when the device is being accessed from within a LAN. If the remote device is accessed using a public network, ssh is preferred so as to not
+ compromise on the authentication.
+
+There maybe situations where telnet or ssh or any other connectivity to a remote device fails. That is when ping is used to check if the device is reachable.
+
+ping only checks if the device is reachable.
+
+Ping is a request and a reply, ie, a two way communication. If ping works, the device is considered reachable.
+
+
+
+
+sudo lets you issue commands as another user without changing your identity
+You need to have an entry in /etc/sudoers to execute these restricted permissions
+sudo -i brings you to an interactive session as root
+su means to switch to a particular user
+Just typing su switches to the root user
+sudo will ask for your password, while su will ask for the password for the user whom you are switching to
+
+
+
+
+The useradd command is lower level and available on all Linux distributions. It requires additional parameters to set up the account entirely.
+The adduser command is higher level and not available on all Linux distributions. The command adds a user to the system with standard settings.
+
+
+
+
+
+
+
+default port  of sonarqube ---> 9000
+SonarQube is an open-source platform developed by SonarSource for continuous inspection of code quality to perform automatic reviews with static analysis of code to 
+detect bugs, code smells, and security vulnerabilities on 20+ programming languages.Sonar does static code analysis, which provides a detailed report of bugs, 
+code smells, vulnerabilities, code duplications.
+SonarQube reduces the risk of software development within a very short amount of time. It also detects bugs in the code automatically and alerts developers to fix
+
+ them before rolling it out for production. It helps to highlight the complex areas of code that are less covered by unit tests.
+
+
+
+SonarQube improves productivity by enabling development teams to identify and muzzle redundancy and duplication of code. SonarQube makes it easier for team members 
+to decrease application size, code complexity, time and cost of maintenance, and make code easier to read and understand.
+
+
+SonarQube reports duplicate code, code coverage, unit testing, code complexity historical, and so on.
+
+
+Use the following command to create reports in SonarQube:
+
+mvn clean install
+
+mvn sonar:sonar -Dsonar.issuesreport.html.enable=true
+
+
+
+Code smell is a maintainability-related issue in the code. Leaving it as-is means that at best maintainers are bound to have a tougher time than they should while 
+making changes to the code. At worst, they can get so confused by the state of the code that they may end up introducing additional errors as they make modifications.
+
+
+
+
+
+
+What are SonarQube's Quality Profiles ?
+Quality Profiles are a core component of SonarQube, since they are where you define sets of Rules that when violated should raise issues on your codebase.
+Quality Profiles are defined for individual languages.
+
+
+
+Quality gate compliance is calculated as part of the analysis. Quality Gates can be defined as a set of threshold measures set on your project like Code Coverage,
+ Technical Debt Measure, Number of Blocker/Critical issues, Security Rating/ Unit Test Pass Rate and more.To pass the Quality Gates, the project should pass through 
+each of the thresholds set.
+
+
+
+
+
+
+
+Detect bugs: SonarQube can detect tricky bugs or raise issues on pieces of code that it thinks is faulty.
+Code smells: Code smells are a code's characteristics that indicate that the code might cause a problem in the future.
+But smells are not necessarily bad, sometimes they are how the functionality works, and there is nothing that can do about it.
+Security vulnerability: SonarQube can detect security issues that a code may face.
+Example: If a developer forgets to close an open SQL database or if important details like username and password have been directly written in the code.
+If the website or the application is hacked, then the hacking another person can figure out these details, access more company applications, and cause a lot of damage;
+ to solve this, SonarQube can identify these errors.
+Activate rules needed: We can create and maintain different sets of rules specific to projects, known as Quality Profiles.
+If a team has some standard rules that it wants to follow for doing specific projects, it creates a quality profile on SonarQube.
+When a developer writes a code, the quality profiles will test against the code written. If the developer is not following the quality profiles, then SonarQube will 
+inform the developer about it.
+
+
+
+The SonarQube quality model has four different types of rules: reliability (bug), maintainability (code smell), and security (vulnerability and hotspot) rules. 
+
+
+
+Code Coverage is a software metric that is used to measure how many lines of our code are executed during automated tests. In other words, we can also say Code 
+Coverage describes the percentage of code covered by automated tests and it checks which parts of code run during the test suite and which don’t. 
+
+JaCoCo stands for Java Code Coverage. It is a free code coverage library for Java, which has been created by the EclEmma team. It creates code coverage reports and 
+integrates well with IDEs like IntelliJ IDEA, Eclipse IDE, etc. JaCoCo also integrates with CI/CD tools like Jenkins, Circle CI, etc., and project management tools
+ like SonarQube, etc. 
+
+
+
+Security hotspots have been introduced for security protections that have no direct impact on the overall application's security. Most injection rules are 
+vulnerabilities, for example, if a SQL injection is found, it is certain that a fix (input validation) is required, so this is a vulnerability.
+
+Detect, explain and give appropriate next steps for Security Vulnerabilities and Hotspots in code review with Static Application Security Testing (SAST).
+
+
+
+Advantages of Jacoco
+
+JaCoCo saves the developer’s time by pinpointing the exact location where the code coverage is low, providing a more specific area to focus on. The JaCoCo tests do
+ not take long at all to generate as they are created while your unit tests are running.
+
+
+
+
+
+Unit testing helps tester and developers to understand the base of code that makes them able to change defect causing code quickly.
+Unit testing helps in the documentation.
+Unit testing fixes defects very early in the development phase that's why there is a possibility to occur a smaller number of defects in upcoming testing levels.
+It helps with code reusability by migrating code and test cases.
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Nexus:
+
+default port  of sonatype nexus repository --->8081
+
+Nexus Repository is a software repository manager that helps organize and store software artifacts. It can be used to host both public and private s/w repositories.
+
+
+A repository manager is a tool that helps manage software libraries and dependencies for a development team. They are important because they help keep track of what 
+software libraries and dependencies are needed for a project, and help ensure that everyone on the team is using the same versions. This can help avoid conflicts and
+ ensure that everyone is working with the most up-to-date code.Nexus Repository can help to speed up build times by caching frequently-used artifacts.
+
+
+
+Nexus Repository uses the Apache Shiro framework for authentication and authorization. This framework provides a pluggable architecture that allows for different
+ authentication and authorization mechanisms to be used. Nexus Repository comes with a few different authentication and authorization modules out of the box,
+ including LDAP, Apache Commons, and JBoss modules.
+
+
+Release policies dictate that once an artifact is released, it cannot be changed. Snapshot policies, on the other hand, allow for artifacts to be updated even after 
+they have been released.
+
+
+
+Are there any limitations to consider when using Nexus Repository?
+Yes, there are a few potential limitations to consider when using Nexus Repository. First, Nexus Repository is not free and will require a subscription for continued
+ use. Additionally, Nexus Repository is not compatible with all software, so it is important to check compatibility before using it. Finally, Nexus Repository can be
+ complex to set up and use, so it is important to have some technical expertise before using it.
+
+
+
+_____________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+Maven is a robust project management tool based on the POM architecture (project object model). It is used for project build, as well as for managing dependencies
+ and documentation. In simple terms, Maven is a tool that can be used to create and manage any Java-based project. Maven simplifies the day-to-day work of Java
+ developers and aids in the comprehension of any Java-based project. Maven is a build automation tool that is mostly used in Java projects 
+
+
+
+
+
+The core concepts of Maven are:
+
+POM Files: Project Object Model (POM) files are XML files that include information about the project and configuration information used by Maven to construct the 
+project, such as dependencies, source directory, plugin, goals, and so on. When you want to run a maven command, you provide it with a POM file to run. To complete
+ its configuration and functions, Maven reads the pom.xml file.
+Dependencies and Repositories: Repositories are folders containing bundled JAR files, and dependencies are external Java libraries necessary for Project. The local 
+repository is simply a folder on your computer's hard drive. Maven retrieves dependencies from a central Maven repository and places them in your local repository
+ if they aren't found in the local Maven repository.
+Build Life Cycles, Phases, and Goals: A build life cycle is made up of a series of build phases, each of which contains a set of goals. A build lifecycle, phase, or
+ goal is referred to as a Maven command. When a lifecycle is asked to be run using the maven command, all of the build steps in that life cycle are likewise run.
+ When a build phase is requested to be executed, it is followed by all build phases in the given sequence.
+Build Profiles: Build Profiles are a set of configuration parameters that allow you to build your project using a variety of setups. For example, you might need to 
+develop and test your project on your local computer. You can add different build profiles to your POM files using its profile elements to enable different builds,
+ which can be triggered in a variety of ways.
+Build Plugins: Build Plugins are used to accomplish a certain task. A plugin can be added to the POM file. Maven comes with various pre-installed plugins, but you 
+can also write your own in Java.
+3. How does Maven work?
+
+
+
+
+
+
+
+
+Maven works in three steps:
+
+Reading the pom.xml file is the first step.
+The dependencies mentioned in pom.xml are then downloaded from the central repository into the local repository.
+Finally, it builds and generates a report based on the requirements, as well as handles life cycles, phases, goals, plugins, and other tasks.
+
+
+In Maven, the Project Object Model (POM) is an XML file named "pom.xml" that serves as the core configuration file for a Maven project. It defines the project's 
+metadata, configuration, and dependencies. The POM is fundamental to Maven and plays a central role in building and managing the project.
+
+Let's explore the different sections and elements found in a typical pom.xml file:
+
+1. Project Information:
+The POM begins with basic information about the project, including its group ID, artifact ID, version, and packaging type (e.g., JAR, WAR). These elements uniquely 
+identify the project within a larger ecosystem.
+
+xml
+Copy code
+<groupId>com.example</groupId>
+<artifactId>my-project</artifactId>
+<version>1.0.0</version>
+<packaging>jar</packaging>
+2. Project Dependencies:
+The dependencies section lists the external libraries (artifacts) required for the project. Each dependency is defined using a groupId, artifactId, and version. 
+Maven automatically downloads these dependencies from repositories (e.g., Maven Central) during the build process.
+
+xml
+Copy code
+<dependencies>
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.12.0</version>
+    </dependency>
+    <!-- More dependencies can be added here -->
+</dependencies>
+3. Build Configuration:
+The build section allows configuring various aspects of the build process, including source directories, target directories, plugins, and compiler settings.
+
+xml
+Copy code
+<build>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <plugins>
+        <!-- Maven plugins and their configurations can be defined here -->
+    </plugins>
+</build>
+4. Repositories:
+The repositories section specifies additional repositories from where Maven should resolve dependencies. By default, Maven uses Maven Central, but you can define 
+custom repositories if needed.
+
+xml
+Copy code
+<repositories>
+    <repository>
+        <id>central</id>
+        <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+    <!-- More repositories can be added here -->
+</repositories>
+5. Plugins:
+Maven plugins enhance the build process by providing additional functionalities, such as code compilation, testing, packaging, and more. Plugin configurations are 
+defined in the plugins section.
+
+xml
+Copy code
+<plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+        </configuration>
+    </plugin>
+    <!-- More plugins and their configurations can be added here -->
+</plugins>
+6. Parent POM (Inheritance):
+A Maven project can inherit configuration from a parent POM, which simplifies the setup and consistency across related projects. The parent element specifies the 
+parent POM's coordinates.
+
+xml
+Copy code
+<parent>
+    <groupId>com.example</groupId>
+    <artifactId>parent-project</artifactId>
+    <version>1.0.0</version>
+</parent>
+These are the main sections found in a typical pom.xml file. The POM serves as the backbone of Maven-based projects, providing essential information for building, 
+managing dependencies, and configuring various aspects of the project. Maven uses the POM to determine the build process, including phases, goals, and the overall 
+project structure.
+
+
+
+The following elements are necessary for creating a pom.xml file:
+
+project- The root element of the pom.xml file is the project.
+modelVersion- It identifies which version of the POM model you're working with. For Maven 2 and Maven 3, use version 4.0.0.
+groupId- groupId is the project group's identifier. It is unique, and you will most likely use a group ID that is similar to the project's root Java package name.
+artifactId- It is used for naming the project you're working on.
+version- The version number of the project is contained in the version element. If your project has been released in multiple versions, it is helpful to list the
+ versions.
+Other Pom.xml File Elements
+
+dependencies- This element is used to establish a project's dependency list.
+dependency- dependency is used inside the dependencies tag to define a dependency. The groupId, artifactId, and version of each dependency are listed.
+name- This element is used to give our Maven project a name.
+scope- This element is used to specify the scope of this maven project, which can include compile, runtime, test, among other things.
+packaging- The packaging element is used to package our project into a JAR, WAR, and other output formats.
+
+
+
+
+
+
+
+Maven scans these repositories for dependencies. Maven looks in the Local repository first, then the Central repository, and finally the Remote repository if the 
+Remote repository is defined in the POM.
+
+Local Repository: Local repository is a directory on the developer's device. The local repository contains all of Maven's dependencies. Even though several projects 
+rely on dependencies, Maven only needs to download them once.
+Central Repository: The Maven community has built the central Maven repository. Maven searches this central repository for any dependencies that aren't available in
+ your local repository. The dependencies are subsequently downloaded into your local repository by Maven.
+Remote Repository: Maven may download dependencies from a remote repository hosted on a web server. It is frequently used to host internal organization projects. The
+ dependencies are subsequently downloaded into your local repository by Maven
+
+
+
+
+
+
+What command should one use to install JAR files in the Local Repository?
+JAR files are installed in the local repository using mvn install.
+The following plugin is used to manually install the JAR into the local Maven repository: install-file-Dfile = <file path>
+8. In Maven, what do you mean by Clean, Default, and Site?
+The three built-in build life cycles are:
+
+Clean: The clean lifecycle is in charge of project cleaning.
+Default: The project deployment is handled by the default lifecycle.
+Site: The creation of the project's site documentation is referred to as the site lifecycle
+
+
+
+
+What is the difference between the maven package and the maven install?
+package: converts the compiled code into a distributable format, such as a JAR.
+
+install: adds the package to the local repository, allowing it to be used as a dependency in other projects.
+
+ 
+
+What is the command to install JAR files in the Local Repository? 
+mvn install is used to install JAR files in the local repository.
+To install the JAR manually into the local Maven repository, the following plugin is used: mvn install:install-file-Dfile=<path to file>.
+
+
+
+
+ What is a ‘Snapshot’ in Maven?
+Snapshot refers to the version available in the Maven remote repository. It signals the latest development copy. Maven inspects for a new version of Snapshot in the
+ remote repository, for every new build.
+
+The snapshot is updated by the data service team with an updated source code every time to the repository for each Maven build.
+
+
+What does ‘Maven Clean’ imply? 
+Maven clean is a plugin as the name suggests, that approaches to clean the files and directories generated by Maven at the time of its build.
+The plugin removes the target folder that contains all the class files, docs, JAR files.
+
+
+
+What does the build tool?
+Generates source code (if the auto-generated code is used)
+Generates documentation from source code
+Compiles source code
+Packages compiled code into a JAR or ZIP file
+Installs the packaged code in the local repository, server repository, or central repository
+
+
+Can you tell me the default location of your local repository?
+~/m2./repository.
+
+Tell me the command to install JAR file in local repository.
+mvn install
+
+
+What is the difference between Snapshot and Version?
+In the case of Version, if Maven once downloads the mentioned version say data-service:1.0, it will never try to download a newer 1.0 available in the repository.
+ To download the updated code, the data-service version is then upgraded to 1.1.
+
+In the case of SNAPSHOT, Maven will automatically fetch the latest SNAPSHOT (data-service:1.0-SNAPSHOT) every time the team builds its project.
+
+
+
+
+
+
+
+
+
+Maven Lifecycle: Below is a representation of the default Maven lifecycle and its 8 steps:
+ Validate, Compile, Test, Package, Integration test, Verify, Install, and Deploy.
+
+
+Validate: This step validates if the project structure is correct. For example – It checks if all the dependencies have been downloaded and are available in the 
+local repository.
+Compile: It compiles the source code, converts the .java files to .class, and stores the classes in the target/classes folder.
+Test: It runs unit tests for the project.
+Package: This step packages the compiled code in a distributable format like JAR or WAR.
+Integration test: It runs the integration tests for the project.
+Verify: This step runs checks to verify that the project is valid and meets the quality standards.
+Install: This step installs the packaged code to the local Maven repository.
+Deploy: It copies the packaged code to the remote repository for sharing it with other developers.
+
+
+
+
+
+
+
+Maven Commands:
+
+mvn clean: Cleans the project and removes all files generated by the previous build.
+mvn compile: Compiles source code of the project.
+mvn test-compile: Compiles the test source code.
+mvn test: Runs tests for the project.
+mvn package: Creates JAR or WAR file for the project to convert it into a distributable format.
+mvn install: Deploys the packaged JAR/ WAR file to the local repository.
+mvn site: generate the project documentation.
+mvn validate: validate the project’s POM and configuration.
+mvn idea:idea: generate project files for IntelliJ IDEA or Eclipse.
+mvn release:perform: Performs a release build.
+mvn deploy: Copies the packaged JAR/ WAR file to the remote repository after compiling, running tests and building the project.
+mvn archetype:generate: This command is used to generate a new project from an archetype, which is a template for a project. This command is typically used to create
+ new projects based on a specific pattern or structure.
+mvn dependency:tree: This command is used to display the dependencies of the project in a tree format. This command is typically used to understand the dependencies 
+of the project and troubleshoot any issues.
+
+
+
+when i issue mvn install what all things happen in background?
+
+On a mvn install, it frames a dependency tree based on the project configuration pom.xml on all the sub projects under the super pom.xml (the root POM) and
+ downloads/compiles all the needed components in a directory called .m2 under the user's folder. These dependencies will have to be resolved for the project to be
+ built without any errors, and mvn install is one utility that could download most of the dependencies.
+
+
+
+
+what are the settings you need to do before running mvn deploy?
+
+settings.xml must be moved .m2 folder of local repository before executing mvn deploy
+
+
+
+Command to skip the test cases in maven
+
+To skip running the tests for a particular project, set the skipTests property to true. You can also skip the tests via the command line by executing the following 
+command: mvn install -DskipTests
+
+
+
+
+what is multi module project in maven
+
+A multi-module project is built from an aggregator POM that manages a group of submodules. In most cases, the aggregator is located in the project's root directory 
+and must have packaging of type pom. The submodules are regular Maven projects, and they can be built separately or through the aggregator POM
+
+Spring Boot to make the application as the Multi-Module Project. In a Multi-Module Project, an application is divided into multiple modules, where each module plays 
+an important role in the certain functionality of an application. A module can be considered as an independent project or sub-project.
+
+
+
+Advantages of a Multi-Module Project
+It provides a great ability to build all sub-modules only with a single command.
+We can run the build command from the parent module.
+While building the application, the build system takes care of the build order.
+Deployment of the applications gets very convenient and flexible.
+
+
+
+
+
+
+What is the importance of dependency management?
+
+
+Managing dependencies is critical when it comes to handling and finishing all the related processes of a project. This helps to: Prioritize tasks, resources, and
+ activities so that the most important ones are handled first, leading to optimum allocation of resources.
+
+
+
+
+
+What is the default value of packaging tag? What other values for other artifact types?
+
+
+Some of the valid packaging values are jar, war, ear and pom. If no packaging value has been specified, it will default to jar.
+
+
+
+What are things you need to set, if you want download dependency from private repository ?
+
+Via the Maven index, you can search for dependencies, select them and add them to your pom file. To download the index,
+ select Windows > Preferences > Maven and enable the Download repository index updates on startup option.
+
+First of all, you define a <mirror> in your settings.xml, so that all requests go to your Artifactory.
+
+Inside the Artifactory, you define a virtual repository for all external repositories you want to access (which will be part of the general virtual repository you
+ use as mirro).
+
+Now for that virtual repository, you can define "exclude patterns". This allows you to tell Artifactory NOT to resolve the groupId com.yourcompany against external 
+repositories.
+
+
+
+
+Is there way by which we can set local repository as some other custom directory, other than .m2?
+
+
+After downloading the Maven, follow the given simple steps to change the local repository location to some other path.
+
+Navigate to path {M2_HOME}\conf\ where M2_HOME is maven installation folder.
+Open file settings.xml in edit mode in some text editor.
+Fine the tag <localRepository>
+Update the desired path in value of this tag. Save the file.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+Jenkins:
+
+
+
+
+
+The post section defines one or more additional steps that are run upon the completion of a Pipeline’s or stage’s run (depending on the location of the post section 
+within the Pipeline). post can support any of the following post-condition blocks: always, changed, fixed, regression, aborted, failure, success, unstable, 
+unsuccessful, and cleanup. These condition blocks allow the execution of steps inside each condition depending on the completion status of the Pipeline or stage. 
+The condition blocks are executed in the order shown below.
+
+
+
+Conditions
+always
+Run the steps in the post section regardless of the completion status of the Pipeline’s or stage’s run.
+
+changed
+Only run the steps in post if the current Pipeline’s run has a different completion status from its previous run.
+
+fixed
+Only run the steps in post if the current Pipeline’s run is successful and the previous run failed or was unstable.
+
+regression
+Only run the steps in post if the current Pipeline’s or status is failure, unstable, or aborted and the previous run was successful.
+
+aborted
+Only run the steps in post if the current Pipeline’s run has an "aborted" status, usually due to the Pipeline being manually aborted. This is typically denoted by 
+gray in the web UI.
+
+failure
+Only run the steps in post if the current Pipeline’s or stage’s run has a "failed" status, typically denoted by red in the web UI.
+
+success
+Only run the steps in post if the current Pipeline’s or stage’s run has a "success" status, typically denoted by blue or green in the web UI.
+
+unstable
+Only run the steps in post if the current Pipeline’s run has an "unstable" status, usually caused by test failures, code violations, etc. This is typically denoted 
+by yellow in the web UI.
+
+unsuccessful
+Only run the steps in post if the current Pipeline’s or stage’s run has not a "success" status. This is typically denoted in the web UI depending on the status 
+previously mentioned (for stages this may fire if the build itself is unstable).
+
+cleanup
+Run the steps in this post condition after every other post condition has been evaluated, regardless of the Pipeline or stage’s status.
+
+
+
+
+
+
+Agent
+An agent is typically a machine, or container, which connects to a Jenkins controller and executes tasks when directed by the controller.
+
+Artifact
+An immutable file generated during a Build or Pipeline run which is archived onto the Jenkins Controller for later retrieval by users.
+
+
+A freestyle project in Jenkins is a type of project that allows you to build, test, and deploy software using a variety of different options and configurations. 
+Here are a few tasks that you could complete when working with a freestyle project in Jenkins.
+
+
+
+Freestyle Project:
+
+The purpose of the freestyle project is to implement, develop, or run simple jobs like allowing you to specify the version control system from which you required to 
+extract code and build it and call tests if available. Freestyle projects are meant to orchestrate simple jobs for a project.
+
+Pipeline Project:
+
+Pipeline Project is a new type of Jenkins project that is suitable either when you have to set up a continuous delivery pipeline or to define the deployment pipeline
+ as code. The pipeline project is applicable to build pipelines for complex activities that are not suitable for freestyle project.
+
+
+
+
+
+
+
+These are the most common Jenkins build triggers:
+Trigger builds remotely.
+Build after other projects are built.
+Build periodically.
+GitHub hook trigger for GITScm polling.
+Poll SCM.
+
+
+
+
+Jenkins has a backup plugin which can used to backup critical configuration settings related to Jenkins. Follow the steps given below to have a backup in place.
+
+$JENKINS_HOME
+Backing up the entire $JENKINS_HOME directory preserves the entire Jenkins instance. To restore the system, just copy the entire backup to the new system.
+
+Note, however, that JENKINS_HOME includes a number of files that do not really need to be backed up. Selecting specific directories and files to back up yields
+ smaller backups but may require a greater effort to restore a system. One approach is to back up different directories on different schedules.
+
+Configuration files
+Configuration files are stored directly in the $JENKINS_HOME directory. ./config.xml is the main Jenkins configuration file. Other configuration files also have the
+ .xml suffix. Specify $JENKINS_HOME/*.xml to back up all configuration files.
+
+Configuration files can also be stored in an SCM repository. This keeps copies of all previous versions of each file that can be retrieved using standard SCM
+ facilities.
+
+./jobs Subdirectory
+The $JENKINS_HOME/jobs directory contains information related to all the jobs you create in Jenkins.
+
+./builds?—?Contains build records
+
+./builds/archive?—?Contains archived artifacts
+
+Back this up if it is important to retain these artifacts long-term
+
+These can be very large and may make your backups very large
+
+./workspace?—?Contains files checked out from the SCM
+
+It is usually not necessary to back up these files. You can perform a clean checkout after restoring the system.
+
+./plugins/*.hpi?—?Plugin packages with specific versions used on your system
+
+./plugins/*.jpi?—?Plugin packages with specific versions used on your system
+
+
+
+The Backup Plugin only does manual backups and stores all data found in JENKINS_HOME. This is sometimes not practical because of time and disk space requirements
+ and the fact that it can only be manually triggered. ThinBackups can be scheduled and only backs up the most vital configuration info. Furthermore the Backup Plugin
+ is unmaintained for quite a while.
+
+
+
+
+Differences between Scripted and Declarative Pipeline
+
+Now that we have seen examples of Scripted and Declarative Pipeline, let’s discuss the key differences between the two pipeline types:
+
+Syntax: The syntax for Scripted Pipeline is based on Groovy scripting language, while the syntax for Declarative Pipeline is based on YAML syntax.
+Flexibility: Scripted Pipeline provides more flexibility and control over the pipeline workflow, while Declarative Pipeline provides a simpler and more structured
+ syntax.
+Error handling: Scripted Pipeline allows for more granular error handling and recovery mechanisms, while Declarative Pipeline provides a simpler error handling 
+mechanism that is more intuitive and easier to understand.
+Code reuse: Scripted Pipeline allows for more code reuse and modularity, while Declarative Pipeline is designed to be more self-contained and less reliant on
+ external scripts and libraries.
+Readability: Declarative Pipeline is designed to be more readable and easier to understand, while Scripted Pipeline can be more complex and verbose.
+
+
+Pipeline Best Practices :
+
+
+Making sure to use Groovy code in Pipelines as glue
+Running shell scripts in Jenkins Pipeline
+Avoiding complex Groovy code in Pipelines
+Reducing repetition of similar Pipeline steps
+Cleaning up old Jenkins builds
+
+Remove unnecessary steps and processes
+Utilize caching as much as possible
+Parallelize your processes
+
+
+
+Securing Jenkins has two aspects to it.
+
+Access control, which ensures users are authenticated when accessing Jenkins and their activities are authorized.
+
+Protecting Jenkins against external threats
+
+Access Control
+You should lock down the access to Jenkins UI so that users are authenticated and appropriate set of permissions are given to them. This setting is controlled mainly
+ by two axes:
+
+Security Realm, which determines users and their passwords, as well as what groups the users belong to.
+
+Authorization Strategy, which determines who has access to what.
+
+These two axes are orthogonal, and need to be individually configured. For example, you might choose to use external LDAP or Active Directory as the security realm,
+ and you might choose "everyone full access once logged in" mode for authorization strategy. Or you might choose to let Jenkins run its own user database, and
+ perform access control based on the permission/user matrix.
+
+Quick and Simple Security --- if you are running Jenkins like java -jar jenkins.war and only need a very simple setup
+
+Standard Security Setup --- discusses the most common setup of letting Jenkins run its own user database and do finer-grained access control
+
+Apache frontend for security --- run Jenkins behind Apache and perform access control in Apache instead of Jenkins
+
+Authenticating scripted clients --- if you need to programmatically access security-enabled Jenkins web UI, use BASIC auth
+
+Matrix-based security|Matrix-based security --- Granting and denying finer-grained permissions
+
+
+
+
+Hardening of the OS
+
+Use a secure and supported operating systems, such as Ubuntu LTS or Red Hat Enterprise Linux.
+Keep the operating system and all its components up-to-date with the latest security patches.
+Use strong passwords and regularly rotate the credentials for all privileged accounts, such as the root account.
+Configure firewalls to limit access to the Jenkins server from the public internet.
+
+	
+Authorization
+Authorization in Jenkins refers to the process of controlling access to resources and operations within Jenkins, such as jobs, build history, artifacts, 
+and other configuration settings.
+
+Here are some best practices for authorization in Jenkins:
+
+Implement role-based access control (RBAC) to define different roles and permissions within Jenkins.
+Use LDAP or Active Directory to manage user authentication and authorization centrally.
+Configure project-based authorization to restrict access to specific jobs, build artifacts, and other resources.
+Use matrix-based authorization to control access to resources and operations based on combinations of user and group permissions.
+Enable secure authentication for Jenkins’ web interface, such as using HTTPS or SSL certificates.
+Use the Role Strategy Plugin to implement custom authorization strategies, such as allowing only specific users to execute shell scripts in Jenkins jobs.
+Use the Role-Based Authentication Plugin to implement custom authentication strategies, such as allowing only specific users to execute shell scripts in Jenkins jobs.
+Disabling Executors on the Controller Node
+Disabling executors on the Jenkins controller node means preventing Jenkins jobs from being executed on the master node. This can be done to reduce the security risk
+ associated with managing jobs on the same node as the Jenkins management interface.
+
+
+ 
+
+
+
+Configuring Jenkins Secrets
+
+
+This is Jenkins' official credential management tool. You can add, modify, and delete secrets as needed. You can also specify which jobs or projects a secret is 
+available for, and assign permissions to specific users or groups. There are multiple ways to store secrets using the Credentials Plugin.
+
+
+We can also store a text-based secret like an OAuth client secret for example:
+If you have an .env holding environment variables needed in multiple steps  in the build pipeline:
+This is where the "Credentials Binding" plugin comes into play. This plugin allows you to bind secrets to environment variables, making them available to your build 
+scripts. It gives you an easy way to package up all a job’s secret files and passwords and access them using a single environment variable during the build.
+
+How to Use Vault Secrets in Jenkins
+In addition to the built-in Jenkins Secrets manager, it is also possible to integrate with third-party secret management tools such as Hashicorp Vault, AWS KMS, etc. 
+This can be particularly useful if you are already using Vault to manage secrets for other applications or services.
+
+
+Managing Secrets in Jenkins
+Managing secrets in Jenkins is crucial for maintaining the security of your applications. To ensure this, it is important to follow best practices such as rotating 
+secrets regularly, using strong passwords, and avoiding storing plaintext secrets in Jenkins or in version control.
+
+
+
+
+
+
+Out Of Memory Errors
+OutOfMemoryError errors may happen for many different reasons:
+
+Your Jenkins is growing in data size, requiring a bigger heap space. In this case you just want to give it a bigger heap.
+
+Your Jenkins is temporarily processing a large amount of data (like test reports), requiring a bigger head room in memory. In this case you just want to give it a 
+bigger heap.
+
+Your Jenkins is leaking memory, in which case we need to fix that.
+
+The Operating System kernel is running out of virtual memory.
+
+
+
+
+
+Jenkins Error: java.io.IOException: Failed to rename jenkins
+
+Today while setting up the maven automatic install setup with jenkins, i found following issues….
+
+Started by user anonymous
+Building on master in workspace C:\Program Files (x86)\Jenkins\jobs\HelloworldMaven\workspace
+> C:\Program Files (x86)\Git\bin\git.exe rev-parse –is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+(x86)\Jenkins\tools\hudson.tasks.Maven_MavenInstallation\maven\apache-maven-3.3.1 to C:\Program Files (x86)\Jenkins\tools\hudson.tasks.Maven_MavenInstallation\maven\apache-maven-3.3.1.__rename
+java.io.IOException: Failed to rename C:\Program Files
+
+
+
+
+
+
+
+
+
+
+
+
+Jenkins Error: Jenkins Workspace Issue
+
+
+Most of our jobs which are running on the Windows systems are failing due to issues in “deleting the workspace”. Our Jenkins working on Virtual machine. We have 
+
+enough space to store Jenkins logs
+
+ERROR::
+
+{code}
+[EnvInject] – Loading node environment variables.
+Building on master in workspace D:\Jenkins\workspace\IntelliLink Develop – Bitbucket
+> git.exe rev-parse –is-inside-work-tree # timeout=10
+ERROR: Workspace has a .git repository, but it appears to be corrupt.
+hudson.plugins.git.GitException: Command “git.exe rev-parse –is-inside-work-tree” returned status code 128:
+stdout:
+at hudson.model.Executor.run(Executor.java:240)
+Cloning the remote Git repository
+Cloning repository bitbucket.org/sw/ddev-intellilink.git
+ERROR: Failed to clean the workspace
+java.nio.file.AccessDeniedException: D:\Jenkins\workspace\IntelliLink Develop –
+
+
+
+Name – Workspace Cleanup Plugin
+wiki.jenkins-ci.org/display/JENKINS/Workspace+Cleanup+Plugin
+
+
+
+
+
+
+
+Jenkins Error: Jenkins time-out while pushing to github
+
+
+> C:\Program Files (x86)\Git\bin\git.exe -c core.askpass=true push github.com/EigenRisk/RACE HEAD:master -f
+> C:\Program Files (x86)\Git\bin\git.exe config –local –remove-section credential # timeout=10
+ERROR: Publisher hudson.plugins.git.GitPublisher aborted due to exception
+hudson.AbortException: No note to push defined
+at hudson.plugins.git.GitPublisher.perform(GitPublisher.java:353)
+
+
+I could resolve this issues by following url…
+stackoverflow.com/questions/19954727/jen…om-github-in-10-mins
+issues.jenkins-ci.org/browse/JENKINS-203…panel#comment-190411
+
+
+
+
+There are numerous environment variables that are available by default in any Jenkins build job. A few commonly used ones include:
+
+$JOB_NAME
+$NODE_NAME
+$WORKSPACE
+$BUILD_URL
+$JOB_URL
+
+
+The Multibranch Pipeline project type enables you to implement different Jenkinsfiles for different branches of the same project. In a Multibranch Pipeline project,
+ Jenkins automatically discovers, manages and executes Pipelines for branches that contain a Jenkinsfile in source control.
+
+
+ How can you temporarily turn off Jenkins security if the administrative users have locked themselves out of the admin console?
+The JENKINS_HOME folder contains a file named config.xml. When you enable the security, this file contains an XML element named useSecurity that changes to true.
+ If you change this setting to false, security will be disabled the next time Jenkins is restarted.
+
+<useSecurity>false</useSecurity>
+
+However, we must understand that disabling security should always be both a last resort and a temporary measure. Once you resolve the authentication issues, 
+make sure that you re-enable Jenkins security and reboot the CI server.
+
+
+How to restart Jenkins manually?
+To restart Jenkins manually, you can use any one of the following commands:
+
+(jenkins_url)/safe restart – Allows all running jobs to complete. New jobs will remain in the queue to run after the restart is complete.
+
+
+
+
+
+https://university.atlassian.com/student/collection/850385/path/1083904
+
+
+
+
+
+What is agile? Agile is a project management methodology. It takes an iterative approach to managing projects, focusing on continuous release that require regular 
+updates based on feedback. Agile helps teams increase delivery speed, expand collaboration, and better respond to market trends. Learn more about agile here.
+
+
+
+What is scrum? Scrum is a specific agile project management framework to help design, develop, and deliver complex products. It's mostly used by software development 
+teams. Scrum teams organize their work in sprints. A sprint is a short, fixed period when a scrum team works to complete a batch of issues.
+ Learn more about scrum here.
+
+
+
+How are agile and scrum different? Agile is a broad project management philosophy with a core set of values and principles. Scrum is one specific agile framework,
+ a way of using those principles to get actual work done.
+
