@@ -1,0 +1,2065 @@
+Differentiate Shell Scripting vs Python Scripting.
+
+
+
+Use Shell Scripting When:
+
+System Administration Tasks: Shell scripting is excellent for automating routine system administration tasks like managing files, directories, and processes.
+ You can use shell scripts for tasks like starting/stopping services, managing users, and basic file manipulation.
+
+Command Line Interactions: If your task primarily involves running command line tools and utilities, shell scripting can be more efficient. It's easy to call and 
+control these utilities from a shell script.
+
+Rapid Prototyping: If you need to quickly prototype a solution or perform one-off tasks, shell scripting is usually faster to write and execute. It's great for 
+ad-hoc tasks.
+
+Text Processing: Shell scripting is well-suited for tasks that involve text manipulation, such as parsing log files, searching and replacing text, or extracting 
+data from text-based sources.
+
+Environment Variables and Configuration: Shell scripts are useful for managing environment variables and configuring your system.
+
+
+
+Use Python When:
+
+Complex Logic: Python is a full-fledged programming language and is well-suited for tasks that involve complex logic, data structures, and algorithms. If your task
+ requires extensive data manipulation, Python can be a more powerful choice.
+
+Cross-Platform Compatibility: Python is more platform-independent than shell scripting, making it a better choice for tasks that need to run on different operating 
+systems.
+
+API Integration: Python has extensive libraries and modules for interacting with APIs, databases, and web services. If your task involves working with APIs, Python 
+may be a better choice.
+
+Reusable Code: If you plan to reuse your code or build larger applications, Python's structure and modularity make it easier to manage and maintain.
+
+Error Handling: Python provides better error handling and debugging capabilities, which can be valuable in DevOps where reliability is crucial.
+
+
+
+Advanced Data Processing: If your task involves advanced data processing, data analysis, or machine learning, Python's rich ecosystem of libraries 
+(e.g., Pandas, NumPy, SciPy) makes it a more suitable choice.
+
+
+
+
+
+
+
+
+
+
+
+
+Concatenation:
+
+
+str1 = "Hello"
+str2 = "World"
+result = str1 + " " + str2
+print(result)
+
+
+
+
+
+Length:
+
+
+text = "Python is awesome"
+length = len(text)
+print("Length of the string:", length)
+
+
+
+
+
+LowerCase
+
+text = "Python is awesome"
+uppercase = text.upper()
+lowercase = text.lower()
+print("Uppercase:", uppercase)
+print("Lowercase:", lowercase)
+
+
+
+
+Replace:
+
+text = "Python is awesome"
+new_text = text.replace("awesome", "great")
+print("Modified text:", new_text)
+
+
+
+
+
+
+
+
+
+Split:
+
+
+text = "Python is awesome"
+words = text.split()
+print("Words:", words)
+
+
+
+
+
+
+Strip:
+
+
+text = "   Some spaces around   "
+stripped_text = text.strip()
+print("Stripped text:", stripped_text)
+
+
+
+
+Substring:
+
+text = "Python is awesome"
+substring = "is"
+if substring in text:
+    print(substring, "found in the text")
+
+
+
+
+
+
+
+
+Regex
+1. Regular Expressions for Text Processing:
+
+Regular expressions (regex or regexp) are a powerful tool for pattern matching and text processing.
+The re module in Python is used for working with regular expressions.
+Common metacharacters: . (any character), * (zero or more), + (one or more), ? (zero or one), [] (character class), | (OR), ^ (start of a line),
+ $ (end of a line), etc.
+
+
+
+
+
+
+
+
+
+Search:
+
+
+
+import re
+
+text = "The quick brown fox"
+pattern = r"brown"
+
+search = re.search(pattern, text)
+if search:
+    print("Pattern found:", search.group())
+else:
+    print("Pattern not found")
+
+
+
+
+
+
+
+Match:
+
+
+import re
+
+text = "The quick brown fox"
+pattern = r"quick"
+
+match = re.match(pattern, text)
+if match:
+    print("Match found:", match.group())
+else:
+    print("No match")
+
+
+
+
+
+
+Difference between re.match() and re.search():
+re.match(): Checks for a match only at the beginning of the string. If the pattern is found at the start, it returns a match object; otherwise, it returns None.
+
+re.search(): Scans through the entire string and finds the first location where the pattern produces a match. It returns a match object if the pattern is found
+ anywhere in the string; otherwise, it returns None.
+
+
+
+
+
+
+Replace:
+
+
+
+import re
+
+text = "The quick brown fox jumps over the lazy brown dog"
+pattern = r"brown"
+
+replacement = "red"
+
+new_text = re.sub(pattern, replacement, text)
+print("Modified text:", new_text)
+
+
+
+
+
+
+
+
+
+
+
+SPlit:
+
+
+import re
+
+text = "apple,banana,orange,grape"
+pattern = r","
+
+split_result = re.split(pattern, text)
+print("Split result:", split_result)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Explain Function in python with realtime example
+
+
+A function in Python is a block of code that performs a specific task. Functions are defined using the def keyword and can take inputs, called arguments.
+ They are a way to encapsulate and reuse code.
+
+
+def greet(name):
+    """This function greets the user."""
+    print(f"Hello, {name}!")
+
+# Calling the function
+greet("Alice")
+
+
+
+
+
+
+
+Module:
+
+
+A module is a Python script containing Python code. It can define functions, classes, and variables that can be used in other Python scripts.
+ Modules help organize and modularize your code, making it more maintainable.
+
+Example:
+
+Suppose you have a Python file named my_module.py:
+
+# my_module.py
+def square(x):
+    return x ** 2
+
+pi = 3.14159265
+You can use this module in another script:
+
+import my_module
+
+result = my_module.square(5)
+print(result)
+print(my_module.pi)
+In this case, my_module is a Python module containing the square function and a variable pi.
+
+
+
+
+Here are some of the commonly used modules for system administration in Python:
+
+os Module:
+
+Allows interaction with the operating system, including file operations, directory manipulation, and executing system commands.
+python
+Copy code
+import os
+subprocess Module:
+
+Provides a way to spawn new processes, connect to their input/output/error pipes, and obtain their return codes.
+python
+Copy code
+import subprocess
+shutil Module:
+
+Offers a higher-level interface for file operations, such as copying, moving, archiving, and more.
+python
+Copy code
+import shutil
+sys Module:
+
+Provides access to some variables used or maintained by the Python interpreter, and functions that interact with the interpreter.
+python
+Copy code
+import sys
+platform Module:
+
+Allows retrieving information about the platform, such as the operating system, version, and hardware architecture.
+python
+Copy code
+import platform
+socket Module:
+
+Enables network communication and can be used for tasks like checking network connectivity or configuring network interfaces.
+python
+Copy code
+import socket
+paramiko Module:
+
+A Python implementation of the SSH protocol, useful for remote administration tasks.
+python
+Copy code
+import paramiko
+psutil Module:
+
+Provides an interface for retrieving information on running processes and system utilization (CPU, memory, disks, network, sensors).
+python
+Copy code
+import psutil
+logging Module:
+
+Offers a flexible logging system that can be used for capturing and managing log messages related to system administration tasks.
+python
+Copy code
+import logging
+datetime Module:
+
+Enables working with dates and times, which can be useful for tasks involving scheduling and logging.
+python
+Copy code
+import datetime
+
+
+
+
+
+
+
+
+
+
+
+Packages
+A package is a collection of modules organized in directories. Packages help you organize related modules into a hierarchy. 
+They contain a special file named __init__.py, which indicates that the directory should be treated as a package.
+
+Example:
+
+Suppose you have a package structure as follows:
+
+my_package/
+    __init__.py
+    module1.py
+    module2.py
+You can use modules from this package as follows:
+
+from my_package import module1
+
+result = module1.function_from_module1()
+In this example, my_package is a Python package containing modules module1 and module2.
+
+
+
+
+
+
+2. How to Import a Package
+Importing a package or module in Python is done using the import statement. You can import the entire package, specific modules, or individual functions/variables
+ from a module.
+
+Example:
+
+# Import the entire module
+import math
+
+# Use functions/variables from the module
+result = math.sqrt(16)
+print(result)
+
+# Import specific function/variable from a module
+from math import pi
+print(pi)
+In this example, we import the math module and then use functions and variables from it. You can also import specific elements from modules using the from module
+ import element syntax.
+
+
+
+
+
+
+
+
+
+Difference between Module and Package
+
+File Structure:
+
+Modules are single Python files (module.py).
+Packages are directories containing an __init__.py file along with multiple modules.
+Organization:
+
+Modules organize related code within a single file.
+Packages help organize related modules within a directory structure.
+Importing:
+
+Modules are imported directly by their filename (import module).
+Modules from a package are imported using the package name (from package import module).
+
+
+
+
+my_project/
++-- main.py
++-- my_package/
+�   +-- __init__.py
+�   +-- module1.py
+�   +-- module2.py
+
+
+
+
+
+
+The __init__.py file in a Python package can include:
+
+Initialization Code: Code that runs when the package is imported.
+Namespace Package Information: Details related to namespace package configuration.
+Package-Level Variables: Variables for package-wide configuration or metadata.
+Subpackage Importing: Control over what gets imported when the package is imported.
+Version Information: Information about the package version.
+Example:
+
+python
+Copy code
+# Content of __init__.py
+
+# Initialization code
+print("Initializing my_package...")
+
+# Package-level variable
+package_variable = "This is a package variable"
+
+# Version information
+__version__ = "1.0"
+
+# Explicitly define what should be imported when using 'from my_package import *'
+__all__ = ['module1', 'module2']
+
+
+
+
+
+Python Workspaces
+Python workspaces refer to the environment in which you develop and run your Python code. They include the Python interpreter, installed libraries, and the
+ current working directory. Understanding workspaces is essential for managing dependencies and code organization.
+
+Python workspaces can be local or virtual environments. A local environment is the system-wide Python installation, while a virtual environment is an isolated
+ environment for a specific project. You can create virtual environments using tools like virtualenv or venv.
+
+Example:
+
+# Create a virtual environment
+python -m venv myenv
+
+# Activate the virtual environment (on Windows)
+myenv\Scripts\activate
+
+# Activate the virtual environment (on macOS/Linux)
+source myenv/bin/activate
+Once activated, you work in an isolated workspace with its Python interpreter and library dependencies.
+
+
+
+
+
+
+
+
+
+
+
+
+Conditional Statements in Python
+Conditional statements are a fundamental part of programming that allow you to make decisions and execute different blocks of code based on certain conditions. 
+In Python, you can use if, elif (short for "else if"), and else to create conditional statements.
+
+if Statement
+The if statement is used to execute a block of code if a specified condition is True. If the condition is False, the code block is skipped.
+
+if condition:
+    # Code to execute if the condition is True
+Example:
+x = 10
+if x > 5:
+    print("x is greater than 5")
+
+
+elif Statement
+The elif statement allows you to check additional conditions if the previous if or elif conditions are False. You can have multiple elif statements after the initial
+ if statement.
+
+if condition1:
+    # Code to execute if condition1 is True
+elif condition2:
+    # Code to execute if condition2 is True
+elif condition3:
+    # Code to execute if condition3 is True
+# ...
+else:
+    # Code to execute if none of the conditions are True
+
+
+Example:
+x = 10
+if x > 15:
+    print("x is greater than 15")
+elif x > 5:
+    print("x is greater than 5 but not greater than 15")
+else:
+    print("x is not greater than 5")
+
+
+
+else Statement
+The else statement is used to specify a block of code to execute when none of the previous conditions (in the if and elif statements) are True.
+
+if condition:
+    # Code to execute if the condition is True
+else:
+    # Code to execute if the condition is False
+
+Example:
+x = 3
+if x > 5:
+    print("x is greater than 5")
+else:
+    print("x is not greater than 5")
+
+
+
+
+
+
+
+
+
+
+
+List:
+
+
+
+What is a List?
+A list is a fundamental data structure in programming that allows you to store a collection of items. Lists are ordered and can contain elements of various data types,
+ such as numbers, strings, and objects.
+
+Creating Lists
+You can create a list in various programming languages. In Python, for example, you create a list using square brackets:
+
+my_list = [1, 2, 3, 'apple', 'banana']
+
+
+
+
+Appending to a List
+You can add elements to the end of a list using the append() method.
+
+my_list.append(4)  # Adds 4 to the end of the list
+
+Removing from a List
+You can remove elements by their value using the remove() method.
+
+my_list.remove('apple')  # Removes 'apple' from the list
+
+Slicing a List
+Slicing allows you to create a new list from a subset of the original list.
+
+subset = my_list[1:4]  # Creates a new list with elements at index 1, 2, and 3
+
+Concatenating Lists
+You can combine two or more lists to create a new list.
+
+new_list = my_list + [5, 6]  # Concatenates my_list with [5, 6]
+
+Sorting a List
+You can sort a list in ascending or descending order using the sort() method.
+
+my_list.sort()  # Sorts the list in ascending order
+
+Checking for an Element
+You can check if an element exists in a list using the in keyword.
+
+is_present = 'banana' in my_list  # Checks if 'banana' is in the list (True)
+
+
+
+
+
+
+
+
+
+
+Tuple:
+
+
+
+What is a Tuple?
+A tuple is a data structure similar to a list, but unlike lists, tuples are immutable, meaning their contents cannot be changed after creation.
+ Tuples are typically used for grouping related data.
+
+Creating Tuples
+You can create a tuple in various programming languages. In Python, for example, you create a tuple using parentheses:
+
+my_tuple = (1, 2, 'apple', 'banana')
+
+
+Accessing Tuple Elements
+Tuples are immutable, so you can only access their elements.
+
+second_element = my_tuple[1]  # Access the second element (2)
+
+Tuple Packing and Unpacking
+You can pack multiple values into a tuple and unpack them into separate variables.
+
+coordinates = (3, 4)
+x, y = coordinates  # Unpack the tuple into x and y (x=3, y=4)
+
+Concatenating Tuples
+You can concatenate two or more tuples to create a new tuple.
+
+new_tuple = my_tuple + (3.14, 'cherry')  # Concatenates my_tuple with a new tuple
+
+Checking for an Element
+You can check if an element exists in a tuple using the in keyword.
+
+is_present = 'apple' in my_tuple  # Checks if 'apple' is in the tuple (True)
+
+Using Tuples for Multiple Return Values
+Tuples are often used to return multiple values from a function.
+
+def get_coordinates():
+    return (3, 4)
+
+x, y = get_coordinates()  # Unpack the returned tuple (x=3, y=4)
+
+
+
+
+
+
+
+
+
+
+Differences Between Tuples and Lists
+Tuples and lists are both common data structures used in programming, but they have some fundamental differences that make them suitable for different purposes. 
+Let's explore these differences:
+
+1. Mutability
+List: Lists are mutable, meaning their elements can be added, removed, or modified after creation. You can use methods like append(), remove(), and pop() to change
+ the contents of a list.
+
+Tuple: Tuples are immutable, and once created, their elements cannot be changed, added, or removed. You can't use methods to modify the tuple.
+
+2. Syntax
+List: Lists are created using square brackets [ ]. Elements are separated by commas.
+
+my_list = [1, 2, 3, 'apple', 'banana']
+Tuple: Tuples are created using parentheses ( ). Elements are also separated by commas.
+
+my_tuple = (1, 2, 'apple', 'banana')
+3. Performance
+List: Lists may have slightly slower performance compared to tuples because they are mutable. Modifying a list requires memory reallocation, which can be slower for
+ large lists.
+
+Tuple: Tuples have better performance, especially for read-only operations, because of their immutability. They do not require memory reallocation.
+
+4. Use Cases
+List: Lists are used when you need a collection of elements that can change, such as a dynamic list of items or data that needs to be modified.
+
+Tuple: Tuples are used when you need an ordered collection of elements that should not change, such as representing a point in 2D space (x, y), or when you want to
+ ensure the integrity of the data.
+
+
+
+
+
+5.Memory Usage
+List: Lists generally consume more memory than tuples because they need to store additional information to support their mutability.
+
+Tuple: Tuples consume less memory because they are immutable, and the interpreter can optimize memory usage.
+
+
+
+
+
+
+
+
+
+
+
+
+Difference between remove and pop in python
+
+
+
+In Python, remove() and pop() are two methods used to manipulate elements in lists. They are used for different purposes and have distinct behaviors:
+
+remove()
+Purpose: Removes the first occurrence of a specified value from the list.
+
+Syntax: list.remove(value)
+
+Use:
+
+Removes the specified value from the list if it exists.
+If multiple instances of value exist, only the first occurrence from the left side of the list is removed.
+Example:
+
+python
+Copy code
+numbers = [1, 2, 3, 2, 4]
+numbers.remove(2)  # Removes the first occurrence of 2
+print(numbers)  # Output: [1, 3, 2, 4]
+pop()
+Purpose: Removes and returns the element at a specified index.
+
+Syntax: list.pop(index)
+
+Use:
+
+Removes the element at the specified index from the list and returns it.
+If index is not provided, by default, pop() removes and returns the last element in the list.
+Example:
+
+python
+Copy code
+numbers = [1, 2, 3, 4]
+removed_element = numbers.pop(1)  # Removes element at index 1 (2) and returns it
+print(removed_element)  # Output: 2
+print(numbers)  # Output: [1, 3, 4]
+Key Differences:
+Arguments:
+
+remove() takes a value to be removed.
+pop() takes an index (optional) indicating the position of the element to be removed.
+Return Value:
+
+remove() does not return anything. It modifies the list in place.
+pop() returns the removed element. It both modifies the list and provides the removed element.
+Usage:
+
+Use remove() when you want to eliminate a specific value from the list without considering its position.
+Use pop() when you want to remove an element at a particular index and potentially use the removed value.
+Effect:
+
+remove() modifies the list by removing the specified value, but it doesn't alter the list's structure.
+pop() modifies the list by removing and returning an element based on the index, potentially changing the list's length.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Loops are a fundamental concept in programming, and they allow you to perform repetitive tasks efficiently. 
+In Python, there are two primary types of loops: "for" and "while."
+
+For Loop
+The "for" loop is used to iterate over a sequence (such as a list, tuple, string, or range) and execute a set of statements for each item in the sequence.
+ The loop continues until all items in the sequence have been processed.
+
+Syntax:
+
+for variable in sequence:
+    # Code to be executed for each item in the sequence
+Example:
+
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+
+
+
+
+
+
+
+While Loop
+The "while" loop continues to execute a block of code as long as a specified condition is true. It's often used when you don't know in advance how many times the
+ loop should run.
+
+Syntax:
+
+while condition:
+    # Code to be executed as long as the condition is true
+Example:
+
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+
+
+
+
+
+
+
+Key Differences:
+
+Control Structure:
+
+for loop iterates over a sequence or iterable.
+while loop repeats as long as a specified condition is true.
+Use Cases:
+
+Use a for loop when the number of iterations is known or when iterating over a sequence.
+Use a while loop when the number of iterations is not known beforehand or when you need to repeatedly execute a block of code until a certain condition is met.
+Termination:
+
+for loop terminates when all items in the sequence are processed.
+while loop terminates when the specified condition becomes false.
+
+
+
+
+
+
+
+Loop control statements are used to modify the behavior of loops, providing greater control and flexibility during iteration. In Python, two primary loop control
+ statements are "break" and "continue."
+
+break Statement
+The "break" statement is used to exit the loop prematurely. It can be applied to both "for" and "while" loops, allowing you to terminate the loop when a particular 
+condition is met.
+
+Example:
+
+numbers = [1, 2, 3, 4, 5]
+for number in numbers:
+    if number == 3:
+        break
+    print(number)
+Output:
+
+1
+2
+In this example, the loop stops when it encounters the number 3.
+
+continue Statement
+The "continue" statement is used to skip the current iteration of the loop and proceed to the next one. It can be used in both "for" and "while" loops, 
+enabling you to bypass certain iterations based on a condition.
+
+Example:
+
+numbers = [1, 2, 3, 4, 5]
+for number in numbers:
+    if number == 3:
+        continue
+    print(number)
+Output:
+
+1
+2
+4
+5
+In this example, the loop skips the iteration where the number is 3 and continues with the next iteration.
+
+
+
+
+
+
+
+
+
+
+
+
+For Loop DevOps use-cases
+
+Server Provisioning and Configuration:
+
+DevOps engineers use "for" loops when provisioning multiple servers or virtual machines with the same configuration. For example, when setting up monitoring agents
+ on multiple servers:
+
+servers=("server1" "server2" "server3")
+for server in "${servers[@]}"; do
+    configure_monitoring_agent "$server"
+done
+
+Deploying Configurations to Multiple Environments:
+
+When deploying configurations to different environments (e.g., development, staging, production), DevOps engineers can use a "for" loop to apply the same
+ configuration changes to each environment:
+
+
+environments=("dev" "staging" "prod")
+for env in "${environments[@]}"; do
+    deploy_configuration "$env"
+done
+
+Backup and Restore Operations:
+
+Automating backup and restore operations is a common use case. DevOps engineers can use "for" loops to create backups for multiple databases or services and later
+ restore them as needed.
+
+databases=("db1" "db2" "db3")
+for db in "${databases[@]}"; do
+    create_backup "$db"
+done
+
+Log Rotation and Cleanup:
+
+DevOps engineers use "for" loops to manage log files, rotate logs, and clean up older log files to save disk space.
+
+log_files=("app.log" "access.log" "error.log")
+for log_file in "${log_files[@]}"; do
+    rotate_and_cleanup_logs "$log_file"
+done
+
+Monitoring and Reporting:
+
+In scenarios where you need to gather data or perform checks on multiple systems, a "for" loop is handy. For example, monitoring server resources across multiple 
+machines:
+
+servers=("server1" "server2" "server3")
+for server in "${servers[@]}"; do
+    check_resource_utilization "$server"
+done
+
+
+Managing Cloud Resources:
+
+When working with cloud infrastructure, DevOps engineers can use "for" loops to manage resources like virtual machines, databases, and storage across different
+ cloud providers.
+
+instances=("instance1" "instance2" "instance3")
+for instance in "${instances[@]}"; do
+    resize_instance "$instance"
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+While Loop DevOps Usecases
+DevOps engineers often use "while" loops in various real-time use cases to automate, monitor, and manage infrastructure and deployments. Here are some practical 
+use cases from a DevOps engineer's perspective:
+
+Continuous Integration/Continuous Deployment (CI/CD) Pipeline:
+
+DevOps engineers often use "while" loops in CI/CD pipelines to monitor the deployment status of applications. They can create a "while" loop that periodically checks
+
+ the status of a deployment or a rolling update until it completes successfully or fails. For example, waiting for a certain number of pods to be ready in a
+ Kubernetes deployment:
+
+while kubectl get deployment/myapp | grep -q 0/1; do
+    echo "Waiting for myapp to be ready..."
+    sleep 10
+done
+
+
+Provisioning and Scaling Cloud Resources:
+
+When provisioning or scaling cloud resources, DevOps engineers may use "while" loops to wait for the resources to be fully provisioned and ready.
+ For instance, waiting for an Amazon EC2 instance to become available:
+
+while ! aws ec2 describe-instance-status --instance-ids i-1234567890abcdef0 | grep -q "running"; do
+    echo "Waiting for the EC2 instance to be running..."
+    sleep 10
+done
+
+
+Log Analysis and Alerting:
+
+DevOps engineers can use "while" loops to continuously monitor logs for specific events or errors and trigger alerts when a certain condition is met. 
+For example, tailing a log file and alerting when an error is detected:
+
+while true; do
+    if tail -n 1 /var/log/app.log | grep -q "ERROR"; then
+        send_alert "Error detected in the log."
+    fi
+    sleep 5
+done
+
+
+Database Replication and Data Synchronization:
+
+DevOps engineers use "while" loops to monitor database replication and ensure data consistency across multiple database instances. The loop can check for
+ replication lag and trigger corrective actions when necessary.
+
+while true; do
+    replication_lag=$(mysql -e "SHOW SLAVE STATUS\G" | grep "Seconds_Behind_Master" | awk '{print $2}')
+    if [ "$replication_lag" -gt 60 ]; then
+        trigger_data_sync
+    fi
+    sleep 60
+done
+
+
+Service Health Monitoring and Auto-Recovery:
+
+DevOps engineers can use "while" loops to continuously check the health of services and automatically trigger recovery actions when services become unhealthy.
+
+while true; do
+    if ! check_service_health; then
+        restart_service
+    fi
+    sleep 30
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+In Python, a lambda function is a small anonymous function defined using the lambda keyword. Lambda functions are often used for short-term operations where a 
+full function definition would be overly verbose. They are particularly useful in functional programming constructs like map(), filter(), and sorted(). 
+Here's an explanation and a real-time example:
+
+Syntax:
+
+python
+Copy code
+lambda arguments: expression
+Example:
+
+python
+Copy code
+# Regular function
+def add(x, y):
+    return x + y
+
+# Equivalent lambda function
+lambda_add = lambda x, y: x + y
+
+# Using the lambda function
+result = lambda_add(3, 5)
+print(result)  # Output: 8
+In this example:
+
+The regular function add takes two arguments x and y and returns their sum.
+The equivalent lambda function lambda_add achieves the same functionality in a more concise way.
+The lambda function is then used to add 3 and 5, and the result is printed.
+Real-time Example: Using Lambda with map()
+
+python
+Copy code
+# List of numbers
+numbers = [1, 2, 3, 4, 5]
+
+# Using map() with a lambda function to square each number
+squared_numbers = list(map(lambda x: x**2, numbers))
+
+print(squared_numbers)  # Output: [1, 4, 9, 16, 25]
+In this example:
+
+The map() function applies the lambda function to each element of the numbers list.
+The lambda function squares each element (x**2), and the result is a new list of squared numbers.
+Lambda functions are valuable in scenarios where a small, simple function is needed for a short duration and defining a full function with def would be unnecessary
+ verbosity. They are commonly used in functional programming paradigms and situations where functions are passed as arguments to other functions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+In Python, decorators are a powerful feature that allows you to modify or extend the behavior of functions or methods. Decorators are applied using the @decorator syntax, and they are often used for tasks such as logging, authentication, memoization, or modifying the output of functions. Here's an explanation and a real-time example:
+
+Basic Syntax:
+
+python
+Copy code
+@decorator
+def some_function():
+    # function implementation
+Example: Simple Decorator
+
+python
+Copy code
+# Simple decorator function
+def my_decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+# Applying the decorator
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+# Calling the decorated function
+say_hello()
+Explanation:
+
+my_decorator is a decorator function that takes another function func as an argument.
+It defines an inner function wrapper, which is a modified version of the original function.
+The modified function is then returned.
+Output:
+
+vbnet
+Copy code
+Something is happening before the function is called.
+Hello!
+Something is happening after the function is called.
+Real-time Example: Logging Decorator
+
+python
+Copy code
+# Logging decorator
+def log_function_call(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling function {func.__name__} with arguments {args} and keyword arguments {kwargs}")
+        result = func(*args, **kwargs)
+        print(f"{func.__name__} returned {result}")
+        return result
+    return wrapper
+
+# Applying the logging decorator
+@log_function_call
+def add_numbers(a, b):
+    return a + b
+
+# Calling the decorated function
+result = add_numbers(3, 5)
+print(f"Result: {result}")
+Explanation:
+
+log_function_call is a decorator that logs information about the function call, arguments, and result.
+The wrapper function is modified to include logging statements before and after calling the original function.
+The decorator is applied to the add_numbers function.
+Output:
+
+javascript
+Copy code
+Calling function add_numbers with arguments (3, 5) and keyword arguments {}
+add_numbers returned 8
+Result: 8
+In this example, the decorator logs information about the function call, making it useful for debugging or monitoring purposes. 
+Decorators are versatile and can be customized based on specific needs, making them a powerful tool in Python.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Python script to list files in folders
+
+
+
+
+
+import os
+
+def list_files_in_folder(folder_path):
+    try:
+        # Get the list of files in the specified folder
+        files = os.listdir(folder_path)
+
+        if not files:
+            print("The folder is empty.")
+        else:
+            print("Files in the folder:")
+            for file in files:
+                print(file)
+
+    except FileNotFoundError:
+        print("Folder not found. Please check the folder path.")
+
+# Get folder name from user input
+folder_name = input("Enter the folder name: ")
+
+# Construct the full folder path
+folder_path = os.path.abspath(folder_name)
+
+# Call the function to list files in the specified folder
+list_files_in_folder(folder_path)
+
+The script defines a function list_files_in_folder that takes a folder path as input, lists the files in that folder, and prints their names.
+
+The user is prompted to enter the folder name at runtime using input().
+
+The os.path.abspath() function is used to convert the entered folder name into an absolute path.
+
+The script then calls the list_files_in_folder function with the provided folder path.
+
+If the folder is not found, it handles the FileNotFoundError and prints an appropriate message
+
+
+
+
+
+__name__ Check:
+
+This conditional statement (if __name__ == "__main__":) ensures that the main() function is executed only if the script is run directly and not imported as a module
+ into another script.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Dictionaries
+Overview:
+A dictionary in Python is a data structure that allows you to store and retrieve values using keys. It is also known as a hashmap or associative array in other
+ programming languages. Dictionaries are implemented as hash tables, providing fast access to values based on their keys.
+
+Creating a Dictionary:
+my_dict = {'name': 'John', 'age': 25, 'city': 'New York'}
+Accessing Values:
+print(my_dict['name'])  # Output: John
+Modifying and Adding Elements:
+my_dict['age'] = 26  # Modifying a value
+my_dict['occupation'] = 'Engineer'  # Adding a new key-value pair
+Removing Elements:
+del my_dict['city']  # Removing a key-value pair
+Checking Key Existence:
+if 'age' in my_dict:
+    print('Age is present in the dictionary')
+Iterating Through Keys and Values:
+for key, value in my_dict.items():
+    print(key, value)
+
+
+
+
+
+
+
+
+
+
+
+
+Sets and Set Operations
+Overview:
+A set in Python is an unordered collection of unique elements. It is useful for mathematical operations like union, intersection, and difference.
+
+Creating a Set:
+my_set = {1, 2, 3, 4, 5}
+Adding and Removing Elements:
+my_set.add(6)  # Adding an element
+my_set.remove(3)  # Removing an element
+Set Operations:
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+
+union_set = set1.union(set2)  # Union of sets
+intersection_set = set1.intersection(set2)  # Intersection of sets
+difference_set = set1.difference(set2)  # Difference of sets
+Subset and Superset:
+is_subset = set1.issubset(set2)  # Checking if set1 is a subset of set2
+is_superset = set1.issuperset(set2)  # Checking if set1 is a superset of set2
+
+
+
+
+
+Practice Exercises and Examples
+Example: Managing a Dictionary of Server Configurations and Optimizing Retrieval
+Scenario:
+Suppose you are managing server configurations using a dictionary.
+
+server_config = {
+    'server1': {'ip': '192.168.1.1', 'port': 8080, 'status': 'active'},
+    'server2': {'ip': '192.168.1.2', 'port': 8000, 'status': 'inactive'},
+    'server3': {'ip': '192.168.1.3', 'port': 9000, 'status': 'active'}
+}
+
+
+Function for Retrieval:
+
+
+
+def get_server_status(server_name):
+    return server_config.get(server_name, {}).get('status', 'Server not found')
+Example Usage:
+server_name = 'server2'
+status = get_server_status(server_name)
+print(f"{server_name} status: {status}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lists vs. Sets
+Lists
+Ordered Collection:
+
+Lists are ordered collections of elements. The order in which elements are added is preserved.
+Elements can be accessed by their index.
+my_list = [1, 2, 3, 4, 5]
+print(my_list[0])  # Output: 1
+Mutable:
+
+Lists are mutable, meaning you can modify their elements after creation.
+my_list[1] = 10
+Allows Duplicate Elements:
+
+Lists can contain duplicate elements.
+my_list = [1, 2, 2, 3, 4]
+Use Cases:
+
+Use lists when you need an ordered collection with the ability to modify elements.
+Sets
+Unordered Collection:
+
+Sets are unordered collections of unique elements. The order in which elements are added is not preserved.
+Elements cannot be accessed by their index.
+my_set = {1, 2, 3, 4, 5}
+Mutable:
+
+Sets are mutable, meaning you can add and remove elements after creation.
+my_set.add(6)
+No Duplicate Elements:
+
+Sets do not allow duplicate elements. If you try to add a duplicate, it won't raise an error, but the set won't change.
+my_set = {1, 2, 2, 3, 4}  # Results in {1, 2, 3, 4}
+Use Cases:
+
+Use sets when you need an unordered collection of unique elements, and you want to perform set operations like union, intersection, and difference.
+Common Operations:
+Adding Elements:
+
+Lists use append() or insert() methods.
+Sets use add() method.
+Removing Elements:
+
+Lists use remove(), pop(), or del statement.
+Sets use remove() or discard() methods.
+Checking Membership:
+
+Lists use the in operator.
+Sets use the in operator as well, which is more efficient for sets.
+# Lists
+if 3 in my_list:
+    print("3 is in the list")
+
+# Sets
+if 3 in my_set:
+    print("3 is in the set")
+Choosing Between Lists and Sets
+
+
+Use Lists When:
+
+You need to maintain the order of elements.
+Duplicate elements are allowed.
+You need to access elements by index.
+
+
+Use Sets When:
+
+Order doesn't matter.
+You want to ensure unique elements.
+You need to perform set operations like union, intersection, or difference.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Python program interacts with the GitHub API to fetch details of users who created pull requests on the Kubernetes GitHub repository and counts the number of pull
+ requests each user has created
+
+
+
+
+
+
+
+# Program to demonstrate integration with GitHub to fetch the 
+# details of Users who created Pull requests(Active) on Kubernetes Github repo.
+
+import requests
+
+# URL to fetch pull requests from the GitHub API
+url = f'https://api.github.com/repos/kubernetes/kubernetes/pulls'
+
+# Make a GET request to fetch pull requests data from the GitHub API
+response = requests.get(url)  # Add headers=headers inside get() for authentication
+
+# Only if the response is successful
+if response.status_code == 200:
+    # Convert the JSON response to a dictionary
+    pull_requests = response.json()
+
+    # Create an empty dictionary to store PR creators and their counts
+    pr_creators = {}
+
+    # Iterate through each pull request and extract the creator's name
+    for pull in pull_requests:
+        creator = pull['user']['login']
+        if creator in pr_creators:
+            pr_creators[creator] += 1
+        else:
+            pr_creators[creator] = 1
+
+    # Display the dictionary of PR creators and their counts
+    print("PR Creators and Counts:")
+    for creator, count in pr_creators.items():
+        print(f"{creator}: {count} PR(s)")
+else:
+    print(f"Failed to fetch data. Status code: {response.status_code}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Python program updates a server configuration file by modifying the value associated with a specified key.
+
+
+def update_server_config(file_path, key, value):
+    # Read the existing content of the server configuration file
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+
+    # Update the configuration value for the specified key
+    with open(file_path, 'w') as file:
+        for line in lines:
+            # Check if the line starts with the specified key
+            if key in line:
+                # Update the line with the new value
+                file.write(key + "=" + value + "\n")
+            else:
+                # Keep the existing line as it is
+                file.write(line)
+
+# Path to the server configuration file
+server_config_file = 'server.conf'
+
+# Key and new value for updating the server configuration
+key_to_update = 'MAX_CONNECTIONS'
+new_value = '600'  # New maximum connections allowed
+
+# Update the server configuration file
+update_server_config(server_config_file, key_to_update, new_value)
+
+
+
+Explanation:
+
+update_server_config Function:
+
+Takes three parameters: file_path (path to the configuration file), key (the configuration key to be updated), 
+and value (the new value to be set for the specified key).
+
+Reads the existing content of the configuration file into the lines list.
+Reading and Updating the Configuration File:
+
+Opens the configuration file (file_path) in read mode ('r') to read its existing content.
+Iterates through each line in the file.
+Checks if the line starts with the specified key.
+If it does, the line is updated with the new value and written to the file.
+If the line doesn't start with the specified key, it is written to the file as it is.
+Example Usage:
+
+Specifies the path to the server configuration file (server_config_file).
+Defines the key (key_to_update) and the new value (new_value) for updating the server configuration.
+Function Invocation:
+
+Calls the update_server_config function with the specified configuration file path, key, and new value to perform the update.
+
+
+
+
+
+
+
+
+
+
+
+Python Program for Github-JIRA intergration Project
+
+
+
+
+# This code sample uses the 'requests' library:
+# http://docs.python-requests.org
+import requests
+from requests.auth import HTTPBasicAuth
+import json
+from flask import Flask
+
+app = Flask(__name__)
+
+# Define a route that handles GET requests
+@app.route('/createJira', methods=['POST'])
+def createJira():
+
+    url = "https://keerthikannan.atlassian.net/rest/api/3/issue"
+
+    API_TOKEN=""
+
+    auth = HTTPBasicAuth("", API_TOKEN)
+
+    headers = {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    }
+
+    payload = json.dumps( {
+        "fields": {
+        "description": {
+            "content": [
+                {
+                    "content": [
+                        {
+                            "text": "Order entry fails when selecting supplier.",
+                            "type": "text"
+                        }
+                    ],
+                    "type": "paragraph"
+                    }
+                ],
+            "type": "doc",
+             "version": 1
+        },
+        "project": {
+           "key": "AB"
+        },
+        "issuetype": {
+            "id": "10006"
+        },
+        "summary": "Main order flow broken",
+    },
+    "update": {}
+    } )
+
+
+    response = requests.request(
+        "POST",
+        url,
+        data=payload,
+        headers=headers,
+        auth=auth
+    )
+
+    return json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": "))
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+
+
+
+
+
+Flask Web Application:
+
+The program defines a Flask web application (app).
+It includes a single route (/createJira) that responds to HTTP POST requests.
+Jira API Interaction:
+
+The /createJira route sends a POST request to the Jira REST API endpoint for creating an issue.
+It uses basic authentication with an empty username and a Jira API token.
+Payload:
+
+The payload for creating a Jira issue is defined in the payload variable.
+It includes fields such as description, project key, issue type, and summary.
+Response Handling:
+
+The response from the Jira API is returned as a JSON-formatted string with indentation.
+Running the Flask App:
+
+If the script is executed directly (__name__ == '__main__'), the Flask app is run on '0.0.0.0' (accessible from outside the local machine) and port 5000.
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Python program  to Identify and delete Stale EBS Snapshots
+
+
+import boto3
+
+def lambda_handler(event, context):
+    ec2 = boto3.client('ec2')
+
+    # Get all EBS snapshots
+    response = ec2.describe_snapshots(OwnerIds=['self'])
+
+    # Get all active EC2 instance IDs
+    instances_response = ec2.describe_instances(Filters=[{'Name': 'instance-state-name', 'Values': ['running']}])
+    active_instance_ids = set()
+
+    for reservation in instances_response['Reservations']:
+        for instance in reservation['Instances']:
+            active_instance_ids.add(instance['InstanceId'])
+
+    # Iterate through each snapshot and delete if it's not attached to any volume or the volume is not attached to a running instance
+    for snapshot in response['Snapshots']:
+        snapshot_id = snapshot['SnapshotId']
+        volume_id = snapshot.get('VolumeId')
+
+        if not volume_id:
+            # Delete the snapshot if it's not attached to any volume
+            ec2.delete_snapshot(SnapshotId=snapshot_id)
+            print(f"Deleted EBS snapshot {snapshot_id} as it was not attached to any volume.")
+        else:
+            # Check if the volume still exists
+            try:
+                volume_response = ec2.describe_volumes(VolumeIds=[volume_id])
+                if not volume_response['Volumes'][0]['Attachments']:
+                    ec2.delete_snapshot(SnapshotId=snapshot_id)
+                    print(f"Deleted EBS snapshot {snapshot_id} as it was taken from a volume not attached to any running instance.")
+            except ec2.exceptions.ClientError as e:
+                if e.response['Error']['Code'] == 'InvalidVolume.NotFound':
+                    # The volume associated with the snapshot is not found (it might have been deleted)
+                    ec2.delete_snapshot(SnapshotId=snapshot_id)
+                    print(f"Deleted EBS snapshot {snapshot_id} as its associated volume was not found.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import os
+import datetime
+
+def get_files_older_than_days(folder_path, days):
+    # Get current date
+    current_date = datetime.datetime.now()
+
+    # Calculate threshold date
+    threshold_date = current_date - datetime.timedelta(days=days)
+
+    # List files older than the threshold date
+    older_files = []
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            file_path = os.path.join(root, file)
+            file_modified_time = datetime.datetime.fromtimestamp(os.path.getmtime(file_path))
+            if file_modified_time < threshold_date:
+                older_files.append(file_path)
+
+    return older_files
+
+def delete_files(files):
+    if not files:
+        print("No files to delete.")
+        return
+
+    print("Files older than the specified days:")
+    for file in files:
+        print(file)
+
+    confirmation = input("Do you want to delete these files? (yes/no): ")
+
+    if confirmation.lower() == "yes":
+        for file in files:
+            os.remove(file)
+        print("Files deleted successfully.")
+    else:
+        print("Deletion aborted.")
+
+if __name__ == "__main__":
+    folder_path = input("Enter folder path: ")
+    days = int(input("Enter number of days: "))
+
+    older_files = get_files_older_than_days(folder_path, days)
+    delete_files(older_files)
+
+
+
+
+
+
+
+
+
+get_files_older_than_days Function:
+
+Takes two parameters: folder_path (the path to the folder) and days (the threshold for considering files as old).
+Retrieves the current date and calculates the threshold date by subtracting the specified number of days.
+Iterates through the files in the specified folder, identifying files with modification times older than the threshold date.
+delete_files Function:
+
+Takes a list of files (files) as a parameter.
+Displays a list of files older than the specified days.
+Asks the user for confirmation before proceeding with the deletion.
+If the user confirms, it deletes the files; otherwise, it aborts the deletion.
+Main Execution:
+
+Takes user input for the folder path and the number of days.
+Calls get_files_older_than_days to identify files older than the specified days.
+Calls delete_files to handle the deletion process.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OWASP ZAP,Snyk, SonarQube
+
+
+
+
+Sample DevSecOps Engineer CV
+Sr. DevSecops Engineer
+
+State, Country
+
+SUMMARY
+
+� A skilled professional with around 9 years of IT experience, 6+ years as a DevSecOps Engineer.
+
+� Strong skills in integrating security tools in CI/CD build pipelines including Project Setup, Build and Release process setup, Build Automation, Continuous Integration, AWS, and DevOps. Seasoned interpersonal skills, strong work ethics, and ability to stay organized within fast - paced organizations.
+
+TECHNICAL SKILLS
+
+IT Delivery Methods: Agile, Scaled Agile, Waterfall
+
+Security Automation Tools: Veracode, Snyk, Checkmarx, Fortify, GitSecrets
+
+Scripting Languages: Shell, Perl, Python, Ruby, Groovy, JavaScript
+
+Version Control Tools: Git
+
+Application Servers: Tomcat
+
+Continuous Integration Tools: Jenkins, GitHub Actions, AWS CodePipeline
+
+Continuous Deployment Tools: Chef, Ansible
+
+Containers: Kubernetes, Docker
+
+Cloud Computing Services: Amazon Web Services (AWS), AZURE
+
+Databases: MySQL, Oracle
+
+Project Management Tools: JIRA, MS Project, Confluence
+
+Operating System: Linux, MacOS, Microsoft Windows
+
+API Tools: Postman
+
+PROFESSIONAL EXPERIENCE
+
+Confidential, State, Country
+
+Sr. DevSecOps Engineer
+
+Responsibilities:
+
+� Responsible for application Build & Release process which includes Code Compilation, Packaging, Security Scanning and code quality scanning, Deployment Methodology and Application Configurations.
+
+� Integrated security tools like Fortify, Veracode, Snyk, SonarQube, Checkmarx in Jenkins Ci/CD build pipeline
+
+� Performed SAST, DAST, SCA and IAC security testing on applications and performed False positive analysis
+
+� Configured Jenkins jobs and pipelines using Azure DevOps, Git, Gradle, Maven, MS - Build, Jenkins, SonarQube, JFROG Artifactory, which includes build and deployment of Java applications to Apache Server, .Net applications to IIS Server.
+
+� Defining Release Process & Policy for projects early in SDLC and responsible for source code build, analysis and deploy configuration.
+
+� Extensively worked on GitHub Actions for continuous integration and for End-to-End automation for all build and deployments.
+
+� Created pipelines from the scratch and wrote Jenkins file using Groovy scripts.
+
+� Wrote cloud formation templates (CFT s) to automate the services that are used for the application deployment.
+
+� Wrote chef Cookbooks and recipes to automate build/deployment process and do an overall process improvement to any manual process using recipes with ruby scripts.
+
+� Worked closely with software developers and DevOps to debug software and system problems.
+
+� Used Zapi plugin in Jenkins to float results back to JIRA and notify the team.
+
+Confidential, State, Country
+
+Sr. DevSecops Engineer
+
+Responsibilities:
+
+� Worked as an active team member for both product development and the operations teams to provide the best DevOps Practices and supported their applications with feasible approaches.
+
+� Integrated security tools like Fortify, Veracode, Snyk, SonarQube, Checkmarx in Jenkins Ci/CD build pipeline
+
+� Creating Jenkins jobs to create AWS infrastructure from Git repos containing Terraform code. Implementing & Working on Terraform scripts to create Infrastructure on AWS/Azure.
+
+� Experience in Amazon Cloud Services (AWS) creating features like EC2, IAM, VPC, EBS, AMI, APIs, Route 53, snapshots, Autoscaling, Cloud watch, CloudTrail, CloudFront, SQS, SNS, RDS, Cloud Watch, S3, API Gateways, Autoscaling, ALB, NLB, Lambda, Security groups using Terraform.
+
+� Create and manage S3 buckets, enable logging in S3 bucket to track the request, who is accessing the data and enable versioning in S3 bucket and restore the deleted file by creating IAM roles.
+
+� Create & Utilize Cloud Watch to monitor resources such as EC2, CPU memory, Amazon RDS DB services, Dynamo tables, EBS volumes, Lambda Functions. Encrypting the EBS volumes to make sure the data in rest is secured and protected
+
+� Implemented a server less architecture using Lambda and deployed AWS Lambda code from Amazon S3 buckets. Created a Lambda Deployment function and configured it to receive events from your S3 bucket using cloud watch events.
+
+� Coordinate/assist developers with establishing and applying appropriate branching, labeling/naming conventions using GIT source control and analyze and resolve conflicts related to merging of source code for GIT.
