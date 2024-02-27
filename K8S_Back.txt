@@ -92,11 +92,11 @@ In continuous deployment, every change that passes automated tests is automatica
 
 
 
-If you want to contribute to an existing project to which you donít have push access, GitHub
+If you want to contribute to an existing project to which you don‚Äôt have push access, GitHub
 encourages forking the project. When you land on a project page that looks interesting and
-you want to hack on it a bit, you can click the ìforkî button in the project header to have
+you want to hack on it a bit, you can click the ‚Äúfork‚Äù button in the project header to have
 GitHub copy that project to your user so you can push to it.
-This way, projects donít have to worry about adding users as collaborators to give them
+This way, projects don‚Äôt have to worry about adding users as collaborators to give them
 push access. People can fork a project and push to it, and the main project maintainer can pull
 in those changes by adding them as remotes and merging in their work.
 
@@ -1097,7 +1097,7 @@ Git rebase is a command that allows developers to integrate changes from one bra
 
 Git Merge is comparatively easy. 	Git Rebase is comparatively harder.
 
-Git Merge safeguards history.	Git Rabse doesnít safeguard history.
+Git Merge safeguards history.	Git Rabse doesn‚Äôt safeguard history.
 
 Git Merge is preferable for large no. of people working on a project.	Git Rebase is preferable for small groups of people.
 
@@ -2331,7 +2331,7 @@ Both feature branching and tagging are essential Git workflows that serve distin
 
 
 
-What is Git Stash? ï How to get back changes after Git Stash? 
+What is Git Stash? ‚Ä¢ How to get back changes after Git Stash? 
 
  
 Git stash is a feature that allows you to temporarily store changes in your working directory without committing them. 
@@ -2585,10 +2585,10 @@ how would delete it from staging area?
 The `git reset` command can be used to remove a file from the staging area, while the `git rm` command will also delete it from the repository. It is important to
  commit any changes after removing files
 
-remove the file that exists in the Git staging index by executing the ìgit rmî command with the ìñcachedî flag and particular file name:
+remove the file that exists in the Git staging index by executing the ‚Äúgit rm‚Äù command with the ‚Äú‚Äìcached‚Äù flag and particular file name:
 
 $ git rm --cached file3.txt
-Here, the ìñcachedî flag is used to remove the file from the Git repository and move them to the working directory as an unstaged file:
+Here, the ‚Äú‚Äìcached‚Äù flag is used to remove the file from the Git repository and move them to the working directory as an unstaged file:
 
 
 
@@ -2663,7 +2663,7 @@ Keep in mind that cherry-picking may introduce conflicts if the changes in the c
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Letís say youíre working on new feature in some branch, now your manager says stop working on that and change few other things on old code. Here after changing the 
+Let‚Äôs say you‚Äôre working on new feature in some branch, now your manager says stop working on that and change few other things on old code. Here after changing the 
 old code, I need to work on new code, so I need to place my new changes some place How would handle this scenario?
 
 
@@ -2888,7 +2888,7 @@ which files have been modified, added, or deleted, and what's ready to be commit
 
 What are hooks in git?
 
-Git hooks are scripts that run automatically every time a particular event occurs in a Git repository. They let you customize Gitís internal behavior and trigger
+Git hooks are scripts that run automatically every time a particular event occurs in a Git repository. They let you customize Git‚Äôs internal behavior and trigger
 customizable actions at key points in the development life cycle.
 
 
@@ -4023,7 +4023,7 @@ git add -A command will add all modified and untracked files in the entire repos
 Whereas git add . will only add modified and untracked files in the current directory and any sub-directories. If you are at the root of the repo, they have the same
  effect.
 
-The ìgit add *î is a Git command that adds files to the Git staging area except for the files that start with ì.î (dot). However, the ìgit add .î command stage/add 
+The ‚Äúgit add *‚Äù is a Git command that adds files to the Git staging area except for the files that start with ‚Äú.‚Äù (dot). However, the ‚Äúgit add .‚Äù command stage/add 
 all the untracked files of the repository to the Git index for tracking purposes. Both commands do not remove manually deleted files.
 
 
@@ -6235,7 +6235,7 @@ files, temporary files, or large data files. It helps to reduce the image size a
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-I have dockerfile that accepts arguments, if I supply value as ì1î then it should use maven 2.x version for base image and if I supply ì2î then it should take maven 
+I have dockerfile that accepts arguments, if I supply value as ‚Äú1‚Äù then it should use maven 2.x version for base image and if I supply ‚Äú2‚Äù then it should take maven 
 latest as base image
 
 
@@ -7958,7 +7958,7 @@ externally, making it more portable and easier to manage.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 22.How to write a docker file to deploy a war file
-i. We have private repository and donít have base images .how can deploy a war file?
+i. We have private repository and don‚Äôt have base images .how can deploy a war file?
 ii. Write a simple docker file to deploy a war file by using base images?
 
 
@@ -8785,7 +8785,7 @@ Docker Task
  Part 1. Write a Docker file to create a Docker image which should have Wordpress installed
  Part 2. Write a Docker file to create a Docker image for database  
 Now, use Docker compose to bring up the above Docker images as containers.
- Database container should mount the local host's ì/etc/mysqlî volume into it's (containers) /etc/mysql directory.  
+ Database container should mount the local host's ‚Äú/etc/mysql‚Äù volume into it's (containers) /etc/mysql directory.  
 
 
 
@@ -14356,7 +14356,8 @@ Please note that the default configurations and available features in AWS EKS mi
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 19) what is end point and ingress in kubernetes
-
+
+
 
 In Kubernetes, "endpoint," "ingress," and "egress" refer to different aspects of networking and connectivity:
 
@@ -17261,7 +17262,7 @@ In summary, a container registry is a critical component in Kubernetes deploymen
 
  how are you managing k8 clusters in your organisation and how will you troubleshoot if any node or pod failure? What are the steps you need to check and follow for 
 that? and  What deployment strategies are you using?Also asking more about kubernetes networking related questions
-Can you please add n explain next time what is init container and liveness probe and readiness probe and startup probes and what is rate limiting in k8ís.
+Can you please add n explain next time what is init container and liveness probe and readiness probe and startup probes and what is rate limiting in k8‚Äôs.
 
 Abhishek is there any video in line up explaining about exact production level project setup wrt infra part covering such as DNS configured properly and hitting the 
 gateway and then coming to clusters or something.. pls do it it helps us alot ??
@@ -17555,7 +17556,7 @@ The GitLab strategy combines feature-driven development and feature branches wit
  branches such as development, pre-production, and production.
 
 In GitLab Flow, development happens in one of these environmental branches, and verified and tested code is merged to other branches until they reach the production
- branch. Letís assume that we have the three environmental branches mentioned above. In that case, the development workflow will be:
+ branch. Let‚Äôs assume that we have the three environmental branches mentioned above. In that case, the development workflow will be:
 
 development. This is where all the development happens. Developers will create separate branches for the feature/bug-fix they are working on and merge them to this
  branch. Then, it will get reviewed and tested.
@@ -17724,7 +17725,7 @@ If a database migration is not successful, but was run as a scheduled job, the s
  mitigate potential issues:
 
 The deployment is actually triggered in multiple steps. The first step in the pipeline starts the build process of the application. The migrations are run in the 
-application context. If the migrations are successful, they will trigger the deployment pipeline if not the application wonít be deployed.
+application context. If the migrations are successful, they will trigger the deployment pipeline if not the application won‚Äôt be deployed.
 Define a convention that all migrations must be backwards compatible. All features are implemented using feature flags in this case. Application rollbacks are
  therefore independent of the database.
 Create a Docker-based application that creates an isolated production mirror from scratch on every deployment. Integration tests run on this production mirror
@@ -17866,10 +17867,10 @@ Nowadays most configuration management tools also provide components to manage t
 What is the difference between CI and CD?
 
 Hide answer
-CI stands for ìcontinuous integrationî and CD is ìcontinuous deliveryî or ìcontinuous deployment.î CI is the foundation of both continuous delivery and continuous
+CI stands for ‚Äúcontinuous integration‚Äù and CD is ‚Äúcontinuous delivery‚Äù or ‚Äúcontinuous deployment.‚Äù CI is the foundation of both continuous delivery and continuous
  deployment. Continuous delivery and continuous deployment automate releases whereas CI only automates the build.
 
-While continuous delivery aims at producing software that can be released at any time, releases to production are still done manually at someoneís decision.
+While continuous delivery aims at producing software that can be released at any time, releases to production are still done manually at someone‚Äôs decision.
  Continuous deployment goes one step further and actually releases these components to production systems.
 
 
@@ -17904,11 +17905,11 @@ Describe some deployment patterns.
 Hide answer
 Blue Green Deployments and Canary Releases are common deployment patterns.
 
-In blue green deployments you have two identical environments. The ìgreenî environment hosts the current production system. Deployment happens in the ìblueî 
+In blue green deployments you have two identical environments. The ‚Äúgreen‚Äù environment hosts the current production system. Deployment happens in the ‚Äúblue‚Äù 
 environment.
 
-The ìblueî environment is monitored for faults and if everything is working well, load balancing and other components are switch newm the ìgreenî environment to the 
-ìblueî one.
+The ‚Äúblue‚Äù environment is monitored for faults and if everything is working well, load balancing and other components are switch newm the ‚Äúgreen‚Äù environment to the 
+‚Äúblue‚Äù one.
 
 Canary releases are releases that roll out specific features to a subset of users to reduce the risk involved in releasing new features.
 
